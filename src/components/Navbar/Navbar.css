@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Gilroy", "sans-serif";
+    src: url(../Fonts/gilroy-light.otf) format("opentype");
+    font-style: normal;
+}
+@font-face {
+    font-family: "Sequel";
+    src: url(../Fonts/Sequel100Black-45.ttf);
+    font-style: normal;
+}
+
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:80px;
+    border-bottom: 1px solid var(--accent-color);
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logo span{
+    
+    font-family: "Gilroy", "sans-serif";
+    font-size: 1.9rem;
+    letter-spacing: 0.2rem;
+    color: var(--primary-color);
+}
+.logo img{
+    width: 100px;
+    height: 50px;
+}
+.User{
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.login{
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-around;
+    padding: 4px 4px;
+}
+.login span{
+    color: var(--primary-color);
+    align-items: center;
+    font-size: 1.6rem;
+}
+.login:hover{
+    cursor: pointer;
+}
