@@ -1,0 +1,77 @@
+.Hotel-Card{
+    width: 300px;
+    height: 240px;
+    position: relative;
+    border-radius: 8px;
+    /* box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+}
+.img-container{
+    position: relative;
+    height: 80% ;
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgb(12, 12, 12), rgba(255, 255, 255, 0));
+}
+.image-footer{
+    padding: 8px 20px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 0.8rem;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 100;
+}
+.wishlist button{
+    
+    position: absolute;
+    background: white;
+    bottom: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.rating ion-icon , .location ion-icon{
+    font-size: 13px;
+    padding-right: 4px;
+    color: var(--primary-color);
+}
+.card-details div{
+    font-size: 0.8rem;
+    padding: 3px 0;
+}
+.rupees-logo{
+    color: var(--primary-color);
+}
+.card-details{
+    background: var(--accent-color);
+    border-bottom-left-radius: 8px ;
+    border-bottom-right-radius: 8px ;
+    font-family: "Gilroy" , sans-serif;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px;
+}

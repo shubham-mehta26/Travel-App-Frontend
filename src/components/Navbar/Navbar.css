@@ -10,10 +10,12 @@
 }
 
 
+
 .navbar{
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
+    background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,24 +26,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-left: 50px;
 }
 .logo span{
     
     font-family: "Gilroy", "sans-serif";
     font-size: 1.9rem;
-    letter-spacing: 0.2rem;
     color: var(--primary-color);
 }
 .logo img{
-    width: 100px;
-    height: 50px;
+    width: 50px;
+    height: 30px;
 }
 .User{
     width: 15%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
+  font-family: "Poppins", sans-serif; 
 }
 .login{
     border: 1px solid var(--primary-color);
@@ -59,4 +62,36 @@
 }
 .login:hover{
     cursor: pointer;
+}
+.form-container{
+    display: flex;
+    height: 2.75rem;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow:  0 0 8px 0px rgba(0, 0, 0, 0.5);
+}
+.form-opiton{
+    font-size: .875rem;
+    padding: 8px;
+    color: var(--text-color-primary);
+    font-family: "Poppins", sans-serif; 
+}
+.search-icon{
+    display: flex;
+    align-items: center;
+    align-items: center;
+    height: 100%;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    background: var(--accent-color);
+}
+.form-container span ion-icon{
+    padding: 0 8px;
+    display: flex;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+.border-span{
+    height: 70%;
+    border-right: 1px solid var(--accent-color);
 }
