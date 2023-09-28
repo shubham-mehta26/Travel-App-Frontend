@@ -1,25 +1,26 @@
 import "./HotelCard.css";
 import React from 'react';
 
-export const HotelCard=()=>{
+export const HotelCard=({hotel})=>{
+    const {  name, image, city, state, price, rating } = hotel;
     return (
        <div className="Hotel-Card">
             <div className="img-container">
                     <div className="image-overlay"></div>
-                    <img src="https://a0.muscache.com/im/pictures/miso/Hosting-26117817/original/9da40e3c-5846-4359-bb41-05c27b09a8f5.jpeg?im_w=720" alt="" />
+                    <img src={image} alt={name} />
                     <div className="image-footer">
-                        <div className="hotel-name">Whispering Pines Cottages</div>
+                        <div className="hotel-name">{name}</div>
                         <div className="rating">
                             <span><ion-icon name="star-sharp"></ion-icon></span>
-                            <span>4.3</span>
+                            <span>{rating}</span>
                         </div>
                     </div>
             </div>
             
             <div className="card-details">
                 <div className="details">
-                    <div className="location"><ion-icon name="location-outline"></ion-icon>Jibhi , India</div>
-                    <div className="price"><span className="rupees-logo">Rs</span> 5000/night</div>
+                <ion-icon className="location-icon" name="location-outline"></ion-icon><div className="location">{city}, {state}</div>
+                    <div className="price"><span className="rupees-logo">₹</span> {price}/night</div>
                 </div>
                 <div className="wishlist">
                     <button>
