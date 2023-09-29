@@ -1,9 +1,10 @@
 import "./Home.css";
 import axios from "axios";
 import { useEffect , useState } from "react";
+import { useCategory } from "../../context";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Navbar , HotelCard } from "../../components";
+import { Navbar , HotelCard , Categories} from "../../components";
 
 
 export const Home=()=>{
@@ -12,12 +13,13 @@ export const Home=()=>{
     const [hotels,setHotels]=useState([]);
     const [testData,setTestData]=useState([]);
     const [currIndex,setCurrIndex]=useState(16);
-
+    const { hotelCategory } = useCategory();
 
     useEffect(()=>{
         ( async ()=>{
             try{
-                const { data } = await axios.get("https://travel-app-backend.cyclic.cloud/api/hotels");
+                const { data } = await axios.get(`https://travel-app-backend.cyclic.cloud/api/hotels
+                ?category=${hotelCategory}`);
                 setTestData(data);
                 setHotels(data ? data.slice(0,16) : []);
             }
@@ -25,7 +27,7 @@ export const Home=()=>{
                 console.log(err);
             }
         })()
-    },[])
+    },[hotelCategory])
 
     const fetchMoreData = () => {
         if(hotels.length >= testData.length){
@@ -45,7 +47,7 @@ export const Home=()=>{
     return(
         <>
         <Navbar/>
-        
+        <Categories/>
             {
                 hotels && hotels.length>0 ? (
                     <InfiniteScroll

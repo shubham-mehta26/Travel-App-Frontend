@@ -116,7 +116,7 @@
     font-size: 1.4rem;
 }
 
-@media screen and (max-width:1393px) {
+@media screen and (max-width:1400px) {
     .Hotel-Card{
         width: 258px;
         height: 215px;
