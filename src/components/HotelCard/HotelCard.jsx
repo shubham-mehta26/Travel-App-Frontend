@@ -8,7 +8,7 @@ export const HotelCard=({hotel})=>{
     const navigate = useNavigate();
 
     const handleHotelCardClick = () =>{
-        navigate(`/hotels/${name}/${city}-${state}/${_id}/reserve`);
+        navigate(`/hotels/${name}/${city}-${state}/${_id}/reserve`); 
     }
 
     return (

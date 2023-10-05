@@ -1,5 +1,6 @@
 .Hotel-Card{
     width: 300px;
+    max-width: 300px;
     height: 260px;
     position: relative;
     border-radius: 8px;
@@ -9,6 +10,7 @@
 .img-container{
     position: relative;
     height: 80% ;
+    transition: all 0.5s ease-in-out;
 }
 .img-container img{
     width: 100%;
@@ -87,6 +89,7 @@
 }
 .location{
     width: 90%;
+    min-height: 40px;
     margin-left: 20px;
 }
 .details  ion-icon:first-child{
@@ -115,6 +118,9 @@
     font-family: "Sequel" , sans-serif;
     font-size: 1.4rem;
 }
+.price{
+    font-weight: bolder;
+}
 
 @media screen and (max-width:1400px) {
     .Hotel-Card{
@@ -137,6 +143,7 @@
     .location{
         width: 80%;
         margin-left: 20px;
+        min-height: 35px;
     }
     .card-details{
         padding: 4px 15px;
