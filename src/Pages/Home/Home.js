@@ -21,6 +21,8 @@ export const Home=()=>{
                 const { data } = await axios.get(`https://travel-app-backend.cyclic.cloud/api/hotels
                 ?category=${hotelCategory}`);
                 setTestData(data);
+                setCurrIndex(16);
+                data.length<16 ? setHasMore(false) : setHasMore(true);
                 setHotels(data ? data.slice(0,16) : []);
             }
             catch(err){
@@ -28,7 +30,7 @@ export const Home=()=>{
             }
         })()
     },[hotelCategory])
-
+    
     const fetchMoreData = () => {
         if(hotels.length >= testData.length){
             setHasMore(false);

@@ -1,10 +1,18 @@
 import "./HotelCard.css";
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const HotelCard=({hotel})=>{
-    const {  name, image, city, state, price, rating } = hotel;
+    const { _id, name, image, city, state, price, rating } = hotel;
+
+    const navigate = useNavigate();
+
+    const handleHotelCardClick = () =>{
+        navigate(`/hotels/${name}/${city}-${state}/${_id}/reserve`);
+    }
+
     return (
-       <div className="Hotel-Card">
+       <div onClick={handleHotelCardClick} className="Hotel-Card">
             <div className="img-container">
                     <div className="image-overlay"></div>
                     <img src={image} alt={name} />
