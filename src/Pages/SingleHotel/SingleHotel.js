@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect , useState } from "react";
 import { useParams } from "react-router-dom";
-import { Navbar , HotelImages } from "../../components"
+import { Navbar , HotelImages , HotelDetails, FinalPrice } from "../../components"
+import "./SingleHotel.css";
 
 export const SingleHotel = ()=>{
 
@@ -25,6 +26,10 @@ export const SingleHotel = ()=>{
         <Navbar />
         <main className="single-hotel-page">
             <HotelImages singleHotel={singleHotel}/>
+            <div className="hotel-details">
+                <HotelDetails singleHotel={singleHotel}/>
+                <FinalPrice singleHotel={singleHotel}/>
+            </div>
         </main>
         </>
     )

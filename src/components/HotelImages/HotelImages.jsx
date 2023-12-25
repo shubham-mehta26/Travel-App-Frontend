@@ -3,7 +3,7 @@ import "./HotelImages.css"
 export const HotelImages = ({ singleHotel }) =>{
     
     const {name, image , imageArr } = singleHotel;
-    console.log(singleHotel);
+    // console.log(singleHotel);
     return(
         <>
         <div className="images">

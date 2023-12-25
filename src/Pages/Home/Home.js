@@ -13,6 +13,7 @@ export const Home=()=>{
     const [hotels,setHotels]=useState([]);
     const [testData,setTestData]=useState([]);
     const [currIndex,setCurrIndex]=useState(16);
+    const [ dataLoaded , setDataLoaded ] = useState(false);
     const { hotelCategory } = useCategory();
 
     useEffect(()=>{
@@ -20,9 +21,13 @@ export const Home=()=>{
             try{
                 const { data } = await axios.get(`https://travel-app-backend.cyclic.cloud/api/hotels
                 ?category=${hotelCategory}`);
-                setTestData(data);
+
+                const sortedData = data.sort((a,b)=>a.index - b.index);
+                setTestData(sortedData);
+                setDataLoaded(true);
+                
                 setCurrIndex(16);
-                data.length<16 ? setHasMore(false) : setHasMore(true);
+                data.length<16 ? setHasMore(false) : setHasMore(true);  
                 setHotels(data ? data.slice(0,16) : []);
             }
             catch(err){
@@ -66,7 +71,9 @@ export const Home=()=>{
                         </main>
                     </InfiniteScroll>
 
-                ) : (<></>)
+                ) : (
+                    dataLoaded && <p className="end-message">No Hotels</p>
+                )
             }
         
         </>

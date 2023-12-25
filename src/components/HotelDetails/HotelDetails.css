@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Noto+Sans:ital,wght@0,100;0,200;0,400;1,100&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto+Mono:wght@100;200;300&family=Roboto:wght@100&display=swap');
+
+.hotel-details-contailer{
+    /* display: flex; */
+    width: 70%;
+    padding-top: 2rem;
+    height: 75vh;
+    max-height: 800px;
+    font-family: 'Poppins', sans-serif;
+}
+.host-details{
+    width: 90%;
+    padding-bottom: 3rem;
+    border-bottom: 1.5px solid #e0e0e0;
+}
+.host-details p{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.host-details span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+}
+.key-features{
+    width: 90%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1.5px solid #e0e0e0
+}
+.key-features ion-icon{
+    position: relative;
+    font-size: 1.6rem;
+    top: 1rem;
+    margin-right: 1.6rem;
+}
+.description{
+    padding-bottom: 0.9rem;
+}
+.sub-description{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    color: #5e5757;
+    top: 0.1rem;
+    left: 3.5rem;
+}
+.ameneties-and-health{
+    width: 90%;
+    display: flex;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1.5px solid #e0e0e0
+}
+.ameneties{
+    width: 40%;
+}
+.health{
+    width: 60%;
+}
+.points{
+    display: flex;
+    padding-bottom: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+.points ion-icon{
+    position: relative;
+    font-size: 1.2rem;
+    top: 0.1rem;
+    margin-right: .5rem;
+}
+.house-rules{
+    width: 90%;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1.5px solid #e0e0e0;
+}

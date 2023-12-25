@@ -1,13 +1,21 @@
 .categories{
     /* position: fixed; */
     padding: 6rem 2rem 1rem 2rem;
+    font-weight: 700;
 }
 .css-11yukd5-MuiTabs-indicator{
     background-color: #ff6525 !important;
+    font-weight: 700;
 }
 .css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected {
     color: #ff6525 !important;
+    font-weight: 700;
 }
 .css-ptiqhd-MuiSvgIcon-root{
     color: #ff6525 !important;
+    font-weight: 700;
+}
+.css-1a4cg4j-MuiButtonBase-root-MuiTab-root{
+    color: #ff6525 !important;
+    font-weight: 700 !important;
 }

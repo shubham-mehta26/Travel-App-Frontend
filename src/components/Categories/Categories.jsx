@@ -9,11 +9,6 @@ export const Categories = ()=>{
     const [value, setValue] = useState(0);
     const [categories,setCategories] = useState([]);
     const { setHotelCategory} = useCategory();
-    
-    
-    
-
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -28,7 +23,9 @@ export const Categories = ()=>{
          (async ()=>{
             try{
                 const {data} = await axios.get("https://travel-app-backend.cyclic.cloud/api/category");
-                setCategories(data);
+
+                const sortedCategories = data.sort((a,b)=> a.index - b.index);
+                setCategories(sortedCategories);
             }catch(err){
                 console.log(err);
             }
@@ -46,7 +43,7 @@ export const Categories = ()=>{
                     textColor="secondary"
                     indicatorColor="secondary"
                     aria-label="scrollable force tabs example"
-                    sx={{ color: '#363030', fontFamily: 'Poppins'}}
+                    sx={{ color: '#363030', fontFamily: 'Poppins', fontWeight: '600'}}
                 >
                     {
                         categories.map((category)=>(
