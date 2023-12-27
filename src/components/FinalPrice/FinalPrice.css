@@ -1,8 +1,12 @@
+.price-detail-containe-wrapper{
+    width: 40%;
+    max-width: 500px;
+}
 .price-detail-container{
     position: relative;
     top: 8.5rem;
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    width: 40%;
+    padding: 1.5rem 1.5rem 0rem 1.5rem;
+    width: 100%;
     border: 1px solid var(--primary-color);
     border-radius: 0.4rem;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1),
@@ -10,7 +14,7 @@
             -5px 5px 5px rgba(0, 0, 0, 0.1),
             5px -5px 5px rgba(0, 0, 0, 0.1);
 
-    & .price{
+    .price{
         font-size: 1.5rem;
         font-weight: 800;
         font-family: "Roboto" , sans-serif;
@@ -51,6 +55,7 @@
     border-radius: 1rem;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    font-size: 1rem;
     & .check-in{
         width: 50%;
         border-right: 1px solid var(--primary-color);
@@ -78,6 +83,7 @@
     & .guest-count{
         padding: .5rem;
         display: flex;
+        align-items: center;
         width: 70%;
         font-size: .7rem;
         font-weight: 800;
@@ -119,7 +125,7 @@
 .guest-controls-button ion-icon{
     position: relative;
     top: .4rem;
-    margin: 0 0.5rem;
+    margin: 0 .2rem;
 }
 .reserve{
     width: 100%;
@@ -166,4 +172,70 @@
     font-weight: 800;
     font-family: "Roboto" , sans-serif;
     color: var(--primary-color);
+}
+@media screen and (max-width: 1220px) and (min-width: 910px) {
+    .price-detail-container{
+        padding: 1.3rem 1.3rem 0rem 1.3rem;
+    
+        .price{
+            font-size: 1.3rem;
+    
+            & span{
+                font-size: .9rem;
+            }
+        
+        }
+    }
+    .rating1{
+        font-size: 1.3rem;
+    }
+    .rating1 ion-icon{
+        font-size: 1.1rem;
+    }
+    .dates{
+        padding: .5rem .8rem;
+        margin-top: 2rem;
+        font-size: .8rem;
+        & .check-in-text , .check-out-text{
+            font-size: .65rem;
+        }
+    }
+    .guests{
+        padding: .6rem .9rem;
+    
+        & .guest-count{
+            padding: .5rem;
+            font-size: .6rem;
+        }
+    
+        & .guest-count-text{
+            font-size: .9rem;
+        }
+    
+        & .guest-count-number{
+            font-size: .9rem;
+        }
+    }
+    .guest-controls-button button{
+        border: none;
+        background-color: transparent;
+        font-size: 1.3rem;
+    }
+    .reserve button{
+        font-size: .8rem;
+    }
+    .tt{
+        font-size: .83rem;
+    }
+    .amount-total{
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width:910px) {
+    .price-detail-containe-wrapper{
+        width: 100%;
+    }
+    .price-detail-container{
+        top: 0;
+    }
 }

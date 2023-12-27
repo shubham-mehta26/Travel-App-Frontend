@@ -78,7 +78,7 @@ export const HotelDetails = ({ singleHotel }) => {
           {houseRules &&
             houseRules.map((item, index) => {
               return (
-                <div className="points">
+                <div className="points" key={index}>
                   <ion-icon name="caret-forward-outline"></ion-icon>
                   <div>{item}</div>
                 </div>

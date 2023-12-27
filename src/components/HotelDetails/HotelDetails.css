@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Noto+Sans:ital,wght@0,100;0,200;0,400;1,100&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto+Mono:wght@100;200;300&family=Roboto:wght@100&display=swap');
 
 .hotel-details-contailer{
-    /* display: flex; */
     width: 70%;
     padding-top: 2rem;
-    height: 75vh;
+    margin-bottom: 80px;
     max-height: 800px;
     font-family: 'Poppins', sans-serif;
 }
@@ -80,4 +79,65 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1.5px solid #e0e0e0;
+}
+@media screen and (max-width: 1220px) and (min-width: 910px) {
+    .host-details p{
+        font-size: 1.1rem;
+    }
+    .host-details span{
+        font-size: .9rem;
+        letter-spacing: 0.02rem;
+    }
+    .key-features ion-icon{
+        font-size: 1.4rem;
+    }
+    .description{
+        font-size: .9rem;
+    }
+    .sub-description{
+        font-size: 0.7rem;
+        left: 3.2rem;
+    }
+    .points ion-icon{
+        font-size: 1rem;
+    }
+    .points{
+        font-size: .9rem;
+    }
+}
+@media screen and (max-width: 910px){
+    .hotel-details-contailer{
+        width: 90%;
+    }
+    .ameneties-and-health{
+        width: 100%;
+    }
+    .host-details{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 426px){
+    .host-details p{
+        font-size: 1.05rem;
+    }
+    .host-details span{
+        font-size: .85rem;
+        letter-spacing: 0.02rem;
+    }
+    .key-features ion-icon{
+        font-size: 1.4rem;
+    }
+    .description{
+        font-size: .9rem;
+    }
+    .sub-description{
+        font-size: 0.7rem;
+        left: 3.2rem;
+    }
+    .points ion-icon{
+        font-size: 1rem;
+    }
+    .points{
+        font-size: .9rem;
+    }
 }

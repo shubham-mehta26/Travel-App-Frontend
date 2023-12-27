@@ -40,3 +40,43 @@
     margin-left:0.5rem;
     margin-bottom: 0.5rem;
 }
+@media screen and (max-width: 1220px) and (min-width: 910px) {
+    .images{
+        padding: 0 5rem;
+        padding-top: 10rem
+    }
+    .hotel-name1{
+        position: absolute;
+        top: 7rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-family: "Poppins" , sans-serif;
+        color: var(--primary-color);
+    }
+}
+@media screen and (max-width: 910px) {
+    .images{
+        padding: 0 2.5rem;
+        padding-top: 10rem
+    }
+}
+@media screen and (max-width: 660px) {
+    .images{
+        padding-top: 0rem
+    }
+}
+.images1{
+    display: flex;
+    padding-top: 80px;
+    max-height: 800px;
+    width: 100%;
+    overflow: hidden;
+}
+.crsl{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.img-crsl{
+    object-fit: cover;
+}

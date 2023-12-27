@@ -1,10 +1,10 @@
 import "./Home.css";
 import axios from "axios";
 import { useEffect , useState } from "react";
-import { useCategory } from "../../context";
+import { useCategory, useDate } from "../../context";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Navbar , HotelCard , Categories} from "../../components";
+import { Navbar , HotelCard , Categories, SearchStayWithDate} from "../../components";
 
 
 export const Home=()=>{
@@ -15,6 +15,7 @@ export const Home=()=>{
     const [currIndex,setCurrIndex]=useState(16);
     const [ dataLoaded , setDataLoaded ] = useState(false);
     const { hotelCategory } = useCategory();
+    const { isSearchModalOpen } = useDate();
 
     useEffect(()=>{
         ( async ()=>{
@@ -75,7 +76,9 @@ export const Home=()=>{
                     dataLoaded && <p className="end-message">No Hotels</p>
                 )
             }
-        
+            {
+                isSearchModalOpen && <SearchStayWithDate/>
+            }
         </>
     )
 }

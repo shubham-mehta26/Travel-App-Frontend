@@ -1,15 +1,25 @@
 import React from 'react';
 import "./Navbar.css";
 import logo from "../Icons/logo.svg";
+import { useDate } from "../../context";
 
 export  const Navbar=()=> {
+
+  const { dateDispatch } = useDate();
+
+  const handleSearchClick = () => {
+    dateDispatch({
+        type: "OPEN_SEARCH_MODAL"
+    });
+  }
+
   return (
     <header className="navbar">
       <div className="logo">
         <img src={logo} alt="Logo" />
         <span>Yatra</span>
       </div>
-      <div className="form-container">
+      <div className="form-container" onClick={handleSearchClick}>
         <span className="form-opiton">Any Where</span>
         <span className="border-span"></span>
         <span className="form-opiton">Any Week</span>
