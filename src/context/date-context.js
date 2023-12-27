@@ -2,8 +2,8 @@ import {useContext, createContext, useReducer} from 'react';
 import { dateReducer } from '../reducer';
 
 const initialState = {
-    checkInDate: "23",
-    checkOutDate: "24",
+    checkInDate: new Date(),
+    checkOutDate: new Date(),
     isSearchModalOpen: false,
 }
 

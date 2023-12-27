@@ -21,15 +21,15 @@ export const SearchStayWithDate = () => {
           </div>
           <div className="check-in part">
             <div className="destination-container-label">
-              <ion-icon name="calendar-outline"></ion-icon> Check-IN
+              <ion-icon name="calendar-outline"></ion-icon> Check-in
             </div>
-            <DateSelector />
+            <DateSelector placeholder="Add Dates" checkInType="in"/>
           </div>
           <div className="check-out part">
             <div className="destination-container-label">
-              <ion-icon name="calendar-outline"></ion-icon> Check-OUT
+              <ion-icon name="calendar-outline"></ion-icon> Check-out
             </div>
-            <DateSelector />
+            <DateSelector placeholder="Add Dates" checkInType="out"/>
           </div>
           <div className="guests-number part">
             <div className="destination-container-label">

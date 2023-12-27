@@ -30,11 +30,13 @@ export const Home=()=>{
                 setCurrIndex(16);
                 data.length<16 ? setHasMore(false) : setHasMore(true);  
                 setHotels(data ? data.slice(0,16) : []);
+
             }
             catch(err){
                 console.log(err);
             }
         })()
+
     },[hotelCategory])
     
     const fetchMoreData = () => {

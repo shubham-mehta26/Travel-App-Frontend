@@ -1,7 +1,8 @@
 .Hotel-Card{
-    width: 300px;
-    max-width: 300px;
-    height: 260px;
+    /* width: 320px; */
+    flex: 0 0 calc(25% - 30px);
+    /* max-width: 300px; */
+    aspect-ratio: 1.154;
     position: relative;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -122,30 +123,19 @@
     font-weight: bolder;
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1200px) {
     .Hotel-Card{
-        width: 258px;
-        height: 215px;
+        flex: 0 0 calc(33.33% - 25px);
     }
-    .image-footer{
-        padding: 6px 8px;
+}
+
+@media screen and (max-width:900px){
+    .Hotel-Card{
+        flex: 0 0 calc(50% - 20px);
     }
-    .wishlist button{
-        right: 8px;
-    }
-    .details  ion-icon:first-child{
-        left: 10px;
-    }
-    .rupees-logo{
-        padding-right: 9px;
-        left: 0px;
-    }
-    .location{
-        width: 80%;
-        margin-left: 20px;
-        min-height: 35px;
-    }
-    .card-details{
-        padding: 4px 15px;
+}
+@media screen and (max-width:575px){
+    .Hotel-Card{
+        flex: 0 0 calc(100% - 10px);
     }
 }
