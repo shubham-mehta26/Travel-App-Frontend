@@ -43,22 +43,22 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-  font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
+    margin-right: 2rem;
 }
 .login{
     border: 1px solid var(--primary-color);
-    border-radius: 1rem;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    width: 30%;
+    width: calc(2.5rem + 0.2vw);
+    aspect-ratio: 1;
     justify-content: space-around;
-    padding: 4px 4px;
 }
 .login span{
     color: var(--primary-color);
     align-items: center;
-    font-size: 1.6rem;
+    font-size: calc(1rem + 0.2vw);
 }
 .login:hover{
     cursor: pointer;
@@ -69,16 +69,22 @@
     align-items: center;
     border-radius: 8px;
     box-shadow:  0 0 8px 0px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    min-width: 330px;
 }
 .form-opiton{
     font-size: .875rem;
     padding: 8px;
     color: var(--text-color-primary);
-    font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
+    width: 30%;
+    text-align: center;
+    
 }
 .search-icon{
+    width: 10%;
     display: flex;
-    align-items: center;
+    justify-content: center;
     align-items: center;
     height: 100%;
     border-bottom-right-radius: 8px;
@@ -94,4 +100,33 @@
 .border-span{
     height: 70%;
     border-right: 1px solid var(--accent-color);
+}
+@media screen and (max-width:660px) {
+    .logo{
+        margin-left: 20px;
+    }
+}
+.mobile-search{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    height: calc(2.5rem + 0.2vw);
+    flex: 0 0 calc(35%);
+    margin-right: calc(.5rem);
+    color: var(--text-color-primary);
+    font-family: "Poppins", sans-serif;
+    padding: 7px 10px;
+}
+.mobile-search ion-icon{
+    padding: 4px;
+    position: absolute;
+    top: calc(3% - 0.5rem);
+    right: calc(5% - 0.5rem);
+    height: 120%;
+    width: 25%;
+    font-size: .5rem;
+    color: var(--primary-color);
+    background-color: var(--accent-color);
 }

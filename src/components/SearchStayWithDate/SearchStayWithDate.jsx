@@ -1,10 +1,21 @@
 import "./SearchStayWithDate.css";
 import { DateSelector } from "../DateSelector/DateSelector";
+import { useDate } from "../../context";
 import icon from "../Icons/logo2.svg";
 
 export const SearchStayWithDate = () => {
+  const { dateDispatch } = useDate();
+
+  const handleSearchClick = (event) => {
+    if (event.target.classList.contains('destination-container-wrapper')) {
+      dateDispatch({
+        type: "OPEN_SEARCH_MODAL",
+      });
+    }
+  };
+
   return (
-    <div className="destination-container-wrapper">
+    <div className="destination-container-wrapper" onClick={handleSearchClick}>
       <div className="logo-name">
         <div className="logo-logo">
           <img src={icon} alt="" />
