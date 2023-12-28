@@ -19,3 +19,9 @@
     color: #ff6525 !important;
     font-weight: 700 !important;
 }
+@media screen and (max-width: 660px) {
+    .categories{
+        padding: 6rem 0rem 0rem 0rem;
+    }
+    
+}

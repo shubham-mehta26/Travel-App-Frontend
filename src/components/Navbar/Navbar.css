@@ -28,6 +28,9 @@
     align-items: center;
     margin-left: 50px;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .logo span{
     
     font-family: "Gilroy", "sans-serif";
@@ -71,9 +74,10 @@
     box-shadow:  0 0 8px 0px rgba(0, 0, 0, 0.5);
     width: 30%;
     min-width: 330px;
+    
 }
 .form-opiton{
-    font-size: .875rem;
+    font-size: .77rem;
     padding: 8px;
     color: var(--text-color-primary);
     font-family: "Poppins", sans-serif;
