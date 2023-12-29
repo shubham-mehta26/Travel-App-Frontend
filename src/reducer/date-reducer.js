@@ -4,6 +4,10 @@ export const dateReducer = (state, { type, payload }) => {
       return { ...state, isSearchModalOpen: !state.isSearchModalOpen };
     case "CLOSE_SEARCH_MODAL":
       return { ...state, isSearchModalOpen: !state.isSearchModalOpen };
+    case "DECREMENT":
+      return { ...state, guests: state.guests>1 ? state.guests - 1 : 1};
+    case "INCREAMENT":
+      return { ...state, guests: state.guests + 1 };
     case "RESET":
       return {
         ...state,

@@ -1,0 +1,28 @@
+.price-range {
+  color: var(--primary-color) !important;
+}
+.slider1 {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+  color: grey;
+}
+.min-max-values {
+  position: relative;
+  top: 0.2rem;
+  width: 15%;
+  text-align: center;
+}
+.max {
+  text-align: right;
+}
+
+@media screen and (max-width: 660px) {
+  .price-range {
+    width: 80%;
+  }
+  .min-max-values {
+    position: relative;
+    top: 0.7rem;
+  }
+}

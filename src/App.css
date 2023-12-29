@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Noto+Sans:ital,wght@0,100;0,200;0,400;1,100&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto+Mono:wght@100;200;300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Noto+Sans:ital,wght@0,100;0,200;0,400;1,100&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto+Mono:wght@100;200;300&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
-  --backgrounfd-color: #fafafa;
+:root {
+  --background-color: rgba(128, 128, 128, 0.821);
   --primary-color: #ff6525;
   --text-color-primary: #363030;
   --accent-color: #d2d2d2;
   --container-border-color: #707070;
-  --overlay: rgba(0,0,0,0.3);
+  --overlay: rgba(0, 0, 0, 0.3);
 }

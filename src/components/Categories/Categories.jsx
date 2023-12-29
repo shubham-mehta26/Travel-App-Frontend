@@ -2,14 +2,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Tabs, Tab, Box } from "@mui/material";
-import { useCategory, useMobileView } from "../../context";
+import { useCategory, useMobileView, useFilter } from "../../context";
 import "./Categories.css";
+import img from "../Icons/filter.png";
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
   const { setHotelCategory } = useCategory();
   const { mobileView } = useMobileView();
+  const { filterDispatch } = useFilter();
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -17,8 +20,6 @@ export const Categories = () => {
   const handleCategoryClick = (category) => {
     setHotelCategory(category.category);
   };
-
-  // console.log({ "hotel category" : hotelCategory});
 
   useEffect(() => {
     (async () => {
@@ -35,13 +36,17 @@ export const Categories = () => {
     })();
   }, []);
 
+  const handleFilterClick = () => {
+    filterDispatch({ type: "SHOW_FILTER_MODAL" });
+  };
+
   return (
     <div className="categories">
       <Box
         sx={{
           maxWidth: {
-            xs: mobileView ? "100%" : 320,   
-            sm: "80%",
+            xs: mobileView ? "100%" : 360,
+            sm: "90%",
           },
           bgcolor: "white",
           color: "text.secondary",
@@ -56,7 +61,12 @@ export const Categories = () => {
           allowScrollButtonsMobile
           indicatorColor="secondary"
           aria-label="scrollable force tabs example"
-          sx={{ color: "#363030", fontFamily: "Poppins", fontWeight: "600" }}
+          sx={{
+            width: "100%",
+            color: "#363030",
+            fontFamily: "Poppins",
+            fontWeight: "600",
+          }}
         >
           {categories.map((category) => (
             <Tab
@@ -67,6 +77,9 @@ export const Categories = () => {
           ))}
         </Tabs>
       </Box>
+      <div className="filter-button" onClick={handleFilterClick}>
+        <img src={img} alt="" /> Filters
+      </div>
     </div>
   );
 };

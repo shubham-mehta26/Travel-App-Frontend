@@ -1,136 +1,150 @@
 @font-face {
-    font-family: "Gilroy", "sans-serif";
-    src: url(../Fonts/gilroy-light.otf) format("opentype");
-    font-style: normal;
+  font-family: "Gilroy", "sans-serif";
+  src: url(../Fonts/gilroy-light.otf) format("opentype");
+  font-style: normal;
 }
 @font-face {
-    font-family: "Sequel";
-    src: url(../Fonts/Sequel100Black-45.ttf);
-    font-style: normal;
+  font-family: "Sequel";
+  src: url(../Fonts/Sequel100Black-45.ttf);
+  font-style: normal;
 }
 
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid var(--accent-color);
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.logo span {
+  font-family: "Gilroy", "sans-serif";
+  font-size: 1.9rem;
+  color: var(--primary-color);
+}
+.logo img {
+  width: 50px;
+  height: 30px;
+}
+.User {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  margin-right: 2rem;
+}
+.login {
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  width: calc(2.5rem + 0.2vw);
+  aspect-ratio: 1;
+  justify-content: space-around;
+}
+.login span {
+  color: var(--primary-color);
+  align-items: center;
+  font-size: calc(1rem + 0.2vw);
+}
+.login:hover {
+  cursor: pointer;
+}
+.form-container {
+  display: flex;
+  height: 2.75rem;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  width: 30%;
+  min-width: 330px;
+}
+.form-opiton {
+  font-size: 0.77rem;
+  padding: 8px;
+  color: var(--text-color-primary);
+  font-family: "Poppins", sans-serif;
+  width: 30%;
+  text-align: center;
+}
+.search-icon {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  background: var(--accent-color);
+}
+.form-container span ion-icon {
+  padding: 0 8px;
+  display: flex;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+.border-span {
+  height: 70%;
+  border-right: 1px solid var(--accent-color);
+}
+@media screen and (max-width: 660px) {
+  .logo {
+    margin-left: 20px;
+  }
+}
+.mobile-search {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--primary-color);
+  border-radius: 1rem;
+  height: calc(2.5rem + 0.2vw);
+  flex: 0 0 calc(35%);
+  margin-right: calc(0.5rem);
+  color: var(--text-color-primary);
+  font-family: "Poppins", sans-serif;
+  padding: 7px 10px;
+}
+.mobile-search ion-icon {
+  padding: 4px;
+  position: absolute;
+  top: calc(3% - 0.5rem);
+  right: calc(5% - 0.5rem);
+  height: 120%;
+  width: 25%;
+  font-size: 0.5rem;
+  color: var(--primary-color);
+  background-color: var(--accent-color);
+}
 
-
-.navbar{
-    width: 100%;
+@media screen and (max-width: 660px) {
+  .User {
     position: fixed;
-    z-index: 2;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:80px;
-    border-bottom: 1px solid var(--accent-color);
-}
-.logo{
-    display: flex;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 7.5vh;
+    margin: 0;
+    z-index: 0;
+    border-top: 2px solid #ff6525;
     justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-}
-.logo:hover{
-    cursor: pointer;
-}
-.logo span{
-    
-    font-family: "Gilroy", "sans-serif";
-    font-size: 1.9rem;
-    color: var(--primary-color);
-}
-.logo img{
-    width: 50px;
-    height: 30px;
-}
-.User{
-    width: 15%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: "Poppins", sans-serif;
-    margin-right: 2rem;
-}
-.login{
-    border: 1px solid var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    width: calc(2.5rem + 0.2vw);
-    aspect-ratio: 1;
-    justify-content: space-around;
-}
-.login span{
-    color: var(--primary-color);
-    align-items: center;
-    font-size: calc(1rem + 0.2vw);
-}
-.login:hover{
-    cursor: pointer;
-}
-.form-container{
-    display: flex;
-    height: 2.75rem;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow:  0 0 8px 0px rgba(0, 0, 0, 0.5);
-    width: 30%;
-    min-width: 330px;
-    
-}
-.form-opiton{
-    font-size: .77rem;
-    padding: 8px;
-    color: var(--text-color-primary);
-    font-family: "Poppins", sans-serif;
-    width: 30%;
-    text-align: center;
-    
-}
-.search-icon{
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    background: var(--accent-color);
-}
-.form-container span ion-icon{
-    padding: 0 8px;
-    display: flex;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-.border-span{
-    height: 70%;
-    border-right: 1px solid var(--accent-color);
-}
-@media screen and (max-width:660px) {
-    .logo{
-        margin-left: 20px;
+    flex-direction: row-reverse;
+    background-color: #fafafa;
+    & .login {
+      margin-right: 1rem;
     }
-}
-.mobile-search{
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    border: 1px solid var(--primary-color);
-    border-radius: 1rem;
-    height: calc(2.5rem + 0.2vw);
-    flex: 0 0 calc(35%);
-    margin-right: calc(.5rem);
-    color: var(--text-color-primary);
-    font-family: "Poppins", sans-serif;
-    padding: 7px 10px;
-}
-.mobile-search ion-icon{
-    padding: 4px;
-    position: absolute;
-    top: calc(3% - 0.5rem);
-    right: calc(5% - 0.5rem);
-    height: 120%;
-    width: 25%;
-    font-size: .5rem;
-    color: var(--primary-color);
-    background-color: var(--accent-color);
+  }
 }

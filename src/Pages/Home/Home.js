@@ -1,86 +1,87 @@
 import "./Home.css";
 import axios from "axios";
-import { useEffect , useState } from "react";
-import { useCategory, useDate } from "../../context";
+import { useEffect, useState } from "react";
+import { useCategory, useDate, useFilter } from "../../context";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Navbar , HotelCard , Categories, SearchStayWithDate} from "../../components";
+import {
+  Navbar,
+  HotelCard,
+  Categories,
+  SearchStayWithDate,
+  Filter,
+} from "../../components";
 
+export const Home = () => {
+  const [hasMore, setHasMore] = useState(true);
+  const [hotels, setHotels] = useState([]);
+  const [testData, setTestData] = useState([]);
+  const [currIndex, setCurrIndex] = useState(16);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const { hotelCategory } = useCategory();
+  const { isSearchModalOpen } = useDate();
+  const { isFilterModalOpen } = useFilter();
 
-export const Home=()=>{
-    
-    const [hasMore,setHasMore]=useState(true);
-    const [hotels,setHotels]=useState([]);
-    const [testData,setTestData]=useState([]);
-    const [currIndex,setCurrIndex]=useState(16);
-    const [ dataLoaded , setDataLoaded ] = useState(false);
-    const { hotelCategory } = useCategory();
-    const { isSearchModalOpen } = useDate();
-
-    useEffect(()=>{
-        ( async ()=>{
-            try{
-                const { data } = await axios.get(`https://travel-app-backend.cyclic.cloud/api/hotels
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } =
+          await axios.get(`https://travel-app-backend.cyclic.cloud/api/hotels
                 ?category=${hotelCategory}`);
 
-                const sortedData = data.sort((a,b)=>a.index - b.index);
-                setTestData(sortedData);
-                setDataLoaded(true);
-                
-                setCurrIndex(16);
-                data.length<16 ? setHasMore(false) : setHasMore(true);  
-                setHotels(data ? data.slice(0,16) : []);
+        const sortedData = data.sort((a, b) => a.index - b.index);
+        setTestData(sortedData);
+        setDataLoaded(true);
 
-            }
-            catch(err){
-                console.log(err);
-            }
-        })()
+        setCurrIndex(16);
+        data.length < 16 ? setHasMore(false) : setHasMore(true);
+        setHotels(data ? data.slice(0, 16) : []);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [hotelCategory]);
 
-    },[hotelCategory])
-    
-    const fetchMoreData = () => {
-        if(hotels.length >= testData.length){
-            setHasMore(false);
-            return;
-        }
-        setTimeout(()=>{
-            if(hotels && hotels.length>0){
-                setHotels(hotels.concat(testData.slice(currIndex,currIndex+16)));
-                setCurrIndex(prev => prev+16);
-            }else{
-                setHotels([]);
-            }
-        },1000);
+  const fetchMoreData = () => {
+    if (hotels.length >= testData.length) {
+      setHasMore(false);
+      return;
     }
-
-    return(
-        <>
-        <Navbar/>
-        <Categories/>
-            {
-                hotels && hotels.length>0 ? (
-                    <InfiniteScroll
-                        dataLength={hotels.length}
-                        next={fetchMoreData}
-                        hasMore={hasMore}
-                        loader={hotels.length.length>0 && <h3 className="loading">Loading...</h3>}
-                        endMessage={<p className="end-message">No more Hotels....</p>}
-                    >
-                        <main className="main">
-                            {
-                                hotels && hotels.map(hotel => <HotelCard key={hotel._id} hotel={hotel}/>)
-                            }
-                        </main>
-                    </InfiniteScroll>
-
-                ) : (
-                    dataLoaded && <p className="end-message">No Hotels</p>
-                )
-            }
-            {
-                isSearchModalOpen && <SearchStayWithDate/>
-            }
-        </>
-    )
-}
+    setTimeout(() => {
+      if (hotels && hotels.length > 0) {
+        setHotels(hotels.concat(testData.slice(currIndex, currIndex + 16)));
+        setCurrIndex((prev) => prev + 16);
+      } else {
+        setHotels([]);
+      }
+    }, 1000);
+  };
+  return (
+    <>
+      <Navbar />
+      <Categories />
+      {hotels && hotels.length > 0 ? (
+        <InfiniteScroll
+          dataLength={hotels.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={
+            hotels.length.length > 0 && <h3 className="loading">Loading...</h3>
+          }
+          endMessage={<p className="end-message">No more Hotels....</p>}
+        >
+          <main className="main">
+            {hotels &&
+              hotels.map((hotel) => (
+                <HotelCard key={hotel._id} hotel={hotel} />
+              ))}
+          </main>
+        </InfiniteScroll>
+      ) : (
+        dataLoaded && <p className="end-message">No Hotels</p>
+      )}
+      {isSearchModalOpen && <SearchStayWithDate />}
+      {isFilterModalOpen && <Filter />}
+    </>
+  );
+};

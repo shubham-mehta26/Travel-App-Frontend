@@ -1,193 +1,191 @@
-.destination-container-wrapper{
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(128, 128, 128, 0.821);
+.destination-container-wrapper {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
 }
-.logo-name{
-    display: flex;
-    align-items: center;
-    position: fixed;
-    z-index: 12;
-    top: 1rem;
-    left: calc(50% - 2.7rem);
-    font-size: calc(1rem + 1.2vw);
-    font-family: "Poppins" , sans-serif;
-    font-weight: 200;
-    color: var(--primary-color);
+.logo-name {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 12;
+  top: 1rem;
+  left: calc(50% - 2.7rem);
+  font-size: calc(1rem + 1.2vw);
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  color: var(--primary-color);
 }
-.logo-logo img{
-    height: calc(1.3rem + 1.2vw);
-    display: flex;
-    align-items: center;
-    margin-right: calc(.5rem + .5vw);
+.logo-logo img {
+  height: calc(1.3rem + 1.2vw);
+  display: flex;
+  align-items: center;
+  margin-right: calc(0.5rem + 0.5vw);
 }
-.destination-container{
+.destination-container {
+  width: 100%;
+  height: 35vh;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+.search-location {
+  position: relative;
+}
+.search-result-container {
+  z-index: 5;
+  position: absolute;
+  top: 4rem;
+  max-height: 45vh;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color-primary);
+  font-size: calc(0.6rem + 0.4vh);
+  border-radius: 1rem;
+  visibility: hidden;
+}
+.search-result-container.show {
+  visibility: visible;
+}
+.search-result-container-part {
+  padding: 0.5rem;
+}
+.search-result-container-part:hover {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+.destination-container input {
+  width: 100%;
+  height: 2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-color);
+  padding: 1rem;
+  font-size: 0.7 rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+.search-bar-popup {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: calc(1rem + 1vw);
+  padding: 1rem;
+  justify-content: space-around;
+  bottom: 1.5rem;
+  display: flex;
+  /* flex: 0 0 calc(75% - 10px); */
+}
+.destination-container-label {
+  display: flex;
+  justify-content: center;
+  transform: translateX(-10%);
+  margin-bottom: 0.2rem;
+  align-items: center;
+  font-size: calc(0.2rem + 1vw);
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+.destination-container-label ion-icon {
+  font-size: calc(0.4rem + 1vw);
+  color: var(--primary-color);
+  margin-right: 0.2rem;
+}
+.part {
+  margin-right: 1rem;
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+.search:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+.search ion-icon {
+  display: flex;
+  align-items: center;
+  font-size: calc(2rem + 1vw);
+}
+
+@media screen and (max-width: 900px) {
+  .search-bar-popup {
+    display: block;
+  }
+  .destination-container {
     width: 100%;
     height: 35vh;
-    position: absolute;
-    background-color: white;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom-left-radius:3rem ;
-    border-bottom-right-radius:3rem ;
-}
-.search-location{
-    position: relative;;
-}
-.search-result-container{
-    z-index: 5;
-    position: absolute;
-    top: 4rem;
-    max-height: 45vh;
-    width: 100%;
-    overflow-y: scroll;
-    background-color: white;
-    font-family: "Poppins" , sans-serif;
-    color: var(--text-color-primary);
-    font-size: calc(.6rem + .4vh);
-    border-radius: 1rem;
-    visibility: hidden;
-}
-.search-result-container.show{
-    visibility: visible;
-}
-.search-result-container-part{
-    padding: .5rem;
-}
-.search-result-container-part:hover{
-    background-color: var(--primary-color);
-    color: white;
-    cursor: pointer;
-}
-.destination-container input{
-    width: 100%;
-    height: 2rem;
-    border-radius: 2rem;
-    border: 1px solid var(--primary-color);
-    padding: 1rem;
-    font-size: .7   rem;
-    font-family: "Poppins" , sans-serif;
-    outline: none;
-
-}
-.search-bar-popup{
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    border-radius: calc(1rem + 1vw);
+    justify-content: left;
+  }
+  .search-bar-popup {
+    width: 90%;
     padding: 1rem;
     justify-content: space-around;
-    bottom: 1.5rem;
+    top: calc(38% - 2rem);
+    display: block;
+  }
+  .destination-container-label ion-icon {
+    font-size: calc(1rem + 1vw);
+  }
+  .part {
     display: flex;
-    /* flex: 0 0 calc(75% - 10px); */
-}
-.destination-container-label{
+    margin-left: calc(0.6rem + 2vw);
+    margin-bottom: 0.7rem;
+    width: 100%;
+    margin-right: 0;
+  }
+  .part input {
+    width: 100%;
+  }
+  .destination-container-label {
     display: flex;
-    justify-content: center;
-    transform: translateX(-10%);
-    margin-bottom: .2rem;
-    align-items: center;
-    font-size: calc(.2rem + 1vw);
-    font-family: "Roboto" , sans-serif;
+    justify-content: left;
+    font-size: calc(0.8rem + 1vw);
+    flex: 0 0 calc(35%);
+  }
+  .search {
+    position: fixed;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    height: 8vh;
+  }
+  .search::after {
+    content: "SEARCH";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 25%;
+    left: calc(50% - 3.5rem);
+    background-color: var(--primary-color);
+    font-family: "Roboto", sans-serif;
     font-weight: 600;
-}
-.destination-container-label ion-icon{
-    font-size: calc(.4rem + 1vw);
-    color: var(--primary-color);
-    margin-right: .2rem;
-}
-.part{
-    margin-right: 1rem;
-}
-.search{
-    display: flex;
-    align-items: center;
-}
-.search:hover{
+    font-size: calc(1.5rem + 1vw);
+    opacity: 0.8;
+  }
+  .search:hover {
     cursor: pointer;
-    color: var(--primary-color);    
-}
-.search ion-icon{
-    display: flex;
-    align-items: center;
-    font-size: calc(2rem + 1vw);
-}
-
-@media  screen and (max-width:900px) {
-    .search-bar-popup{
-        display: block;
-    }
-    .destination-container{
-        width: 100%;
-        height: 35vh;
-        justify-content: left;
-    }
-    .search-bar-popup{
-        width: 90%;
-        padding: 1rem;
-        justify-content: space-around;
-        top: calc(38% - 2rem);
-        display: block;
-    }
-    .destination-container-label ion-icon{
-        font-size: calc(1rem + 1vw);
-        
-    }
-    .part{
-        display: flex;
-        margin-left: calc(.6rem + 2vw);
-        margin-bottom: .7rem;
-        width: 100%;
-        margin-right: 0;
-    }
-    .part input{
-        width: 100%;
-    }
-    .destination-container-label{
-        display: flex;
-        justify-content: left;
-        font-size: calc(.8rem + 1vw);
-        flex: 0 0 calc(35%);
-    }
-    .search{
-        position: fixed;;
-        background-color: var(--primary-color);
-        bottom: 0;
-        left: 0;
-        padding: 0;
-        margin: 0;
-        height: 8vh;
-    }
-    .search::after{
-        content: "SEARCH";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 25%;
-        left: calc(50% - 3.5rem);
-        background-color: var(--primary-color);
-        font-family: "Roboto" , sans-serif;
-        font-weight: 600;
-        font-size: calc(1.5rem + 1vw);
-        opacity: 0.8;
-    }
-    .search:hover{
-        cursor: pointer;
-        color: black    
-    }
-    .search ion-icon{
-        visibility: hidden;
-    }
-    .react-datepicker-wrapper{
-        width: 100%;
-    }
-    .search-result-container{
-        top: 2.5rem;
-        left: 35%;
-        width: 65%;
-    }
+    color: black;
+  }
+  .search ion-icon {
+    visibility: hidden;
+  }
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  .search-result-container {
+    top: 2.5rem;
+    left: 35%;
+    width: 65%;
+  }
 }

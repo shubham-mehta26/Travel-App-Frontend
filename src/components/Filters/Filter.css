@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.filter-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000000;
+  background-color: var(--background-color);
+  height: 100%;
+  width: 100%;
+}
+.filter-modal {
+  position: relative;
+  flex: 0 0 calc(45% - 2rem);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  max-height: 75svh;
+  overflow-y: auto;
+}
+.filer-heading {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: large;
+  margin-bottom: 2rem;
+}
+.close-logo {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.close-logo ion-icon {
+  font-size: calc(0.7rem + 1vw);
+  animation: all 1s ease-in-out;
+}
+.close-logo ion-icon:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+.filter-label {
+  font-size: calc(0.5rem + 0.7vw);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+.filter-container {
+  width: 100%;
+}
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.filter-buttons button {
+  width: 48%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: calc(0.5rem + 0.7vw);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+.apply-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+.apply-button:hover {
+  background-color: #ff6625b7;
+  color: white;
+}
+@media screen and (max-width: 1240px) {
+  .filter-modal {
+    flex: 0 0 calc(75% - 2rem);
+  }
+}
+@media screen and (max-width: 660px) {
+  .filter-modal-wrapper {
+    align-items: last baseline;
+  }
+  .filter-modal {
+    height: 80vh;
+    position: relative;
+    flex: 0 0 calc(100%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .filter-buttons button {
+    position: absolute;
+    width: 50%;
+    height: 7vh;
+    bottom: 0;
+    border-radius: 0;
+  }
+  .apply-button {
+    right: 0;
+  }
+  .clear-button {
+    left: 0;
+  }
+  .filter-label {
+    font-size: calc(0.8rem + 0.7vw);
+  }
+  .filer-heading {
+    font-size: calc(1rem + 0.7vw);
+  }
+  .close-logo ion-icon {
+    font-size: calc(1.5rem + 1vw);
+  }
+}

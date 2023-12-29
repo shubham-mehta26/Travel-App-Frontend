@@ -17,7 +17,8 @@ export const DateSelector = ({ placeholder, checkInType }) => {
       onChange={(date) => handleDateChange(date)}
       className="search-dest input"
       dateFormat="dd/MM/yyyy"
-      placeholder={placeholder}
+      placeholderText={placeholder}
+      minDate={checkInType === "in" ? new Date() : checkInDate}
       closeOnScroll={true}
     />
   );

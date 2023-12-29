@@ -1,0 +1,44 @@
+.rooms-beds-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+.room-type {
+  display: flex;
+  flex-direction: column;
+}
+.span-label {
+  padding: 0.5rem;
+}
+.rooms-beds-number {
+  width: 100%;
+}
+.rooms-beds-number-values {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+.rooms-beds-number-values span {
+  display: inline-block;
+  flex: 0 0 calc(16.6% - 1rem);
+  border-radius: 0.3rem;
+  text-align: center;
+  border: 1px solid grey;
+}
+.rooms-beds-number-values span:hover {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+  .rooms-beds-container {
+    gap: 0;
+  }
+  .rooms-beds-number-values span {
+    flex: 0 0 calc(16.6% - 0.3rem);
+  }
+}

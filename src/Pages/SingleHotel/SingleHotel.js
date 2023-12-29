@@ -1,20 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDate } from "../../context";
+import { useDate, useMobileView } from "../../context";
+import { useNavigate } from "react-router-dom";
 import {
-  Navbar,
   HotelImages,
   HotelDetails,
   FinalPrice,
-  SearchStayWithDate
+  SearchStayWithDate,
+  Navbar,
 } from "../../components";
 import "./SingleHotel.css";
+import img from "../../components/Icons/logo.svg";
 
 export const SingleHotel = () => {
   const { id } = useParams();
   const [singleHotel, setSingleHotel] = useState({});
   const { isSearchModalOpen } = useDate();
+  const { mobileView } = useMobileView();
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -29,9 +33,23 @@ export const SingleHotel = () => {
     })();
   }, [id]);
 
+  const goback = () => {
+    navigate(-1);
+  };
+
   return (
     <>
-      <Navbar />
+      {!mobileView && <Navbar />}
+      {mobileView && (
+        <div className="mobile-navbar">
+          <div className="mobile-navbar-back" onClick={goback}>
+            <ion-icon name="arrow-back-outline"></ion-icon>Back
+          </div>
+          <div className="logo">
+            <img src={img} alt="logo-img" />
+          </div>
+        </div>
+      )}
       <main className="single-hotel-page">
         <HotelImages singleHotel={singleHotel} />
         <div className="hotel-details">

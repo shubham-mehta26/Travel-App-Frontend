@@ -1,82 +1,85 @@
-.hotel-name1{
-    position: absolute;
-    top: 7rem;
-    font-size: 1.7rem;
-    font-weight: 500;
-    font-family: "Poppins" , sans-serif;
-    color: var(--primary-color);
+.hotel-name1 {
+  position: absolute;
+  top: 7rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: var(--primary-color);
 }
-.images{
-    display: flex;
-    padding: 0 10rem;
-    padding-top: 10rem;
-    height: 75vh;
-    max-height: 800px;
+.images {
+  display: flex;
+  padding: 0 10rem;
+  padding-top: 10rem;
+  height: 75vh;
+  max-height: 800px;
 }
-.main-img{
-
-    width: 50%;
-    /* height: 100%; */
-    height:calc(100% + .5rem);
+.main-img {
+  width: 50%;
+  /* height: 100%; */
+  height: calc(100% + 0.5rem);
 }
-.secondary-img{
-    display: flex;
-    flex-wrap: wrap;
-    width:50%;
-    height:100%;
+.secondary-img {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 100%;
 }
-.main-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+.main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
-.secondary-img img{
-    width: 45%;
-    height: 50%;
-    max-height: 50%;
-    border-radius: 4px;
-    object-fit: cover;
-    margin-left:0.5rem;
-    margin-bottom: 0.5rem;
+.secondary-img img {
+  width: 45%;
+  height: 50%;
+  max-height: 50%;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 1220px) and (min-width: 910px) {
-    .images{
-        padding: 0 5rem;
-        padding-top: 10rem
-    }
-    .hotel-name1{
-        position: absolute;
-        top: 7rem;
-        font-size: 1.5rem;
-        font-weight: 500;
-        font-family: "Poppins" , sans-serif;
-        color: var(--primary-color);
-    }
+  .images {
+    padding: 0 5rem;
+    padding-top: 10rem;
+  }
+  .hotel-name1 {
+    position: absolute;
+    top: 7rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-color);
+  }
 }
 @media screen and (max-width: 910px) {
-    .images{
-        padding: 0 2.5rem;
-        padding-top: 10rem
-    }
+  .images {
+    padding: 0 2.5rem;
+    padding-top: 10rem;
+  }
 }
+.images1 {
+  display: flex;
+  padding-top: 80px;
+  max-height: 800px;
+  width: 100%;
+  overflow: hidden;
+}
+.crsl {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.img-crsl img {
+  object-fit: cover;
+}
+
 @media screen and (max-width: 660px) {
-    .images{
-        padding-top: 0rem
-    }
-}
-.images1{
-    display: flex;
-    padding-top: 80px;
-    max-height: 800px;
-    width: 100%;
-    overflow: hidden;
-}
-.crsl{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-.img-crsl{
-    object-fit: cover;
+  .images {
+    padding-top: 0rem;
+  }
+  .images1 {
+    padding: 0;
+  }
 }
