@@ -15,6 +15,14 @@ export const Filter = () => {
     filterDispatch({ type: "SHOW_FILTER_MODAL" });
   };
 
+  const handleFilterApplyClick = () => {
+    filterDispatch({ type: "APPLY_FILTERS" });
+  };
+
+  const handleClearFilterClick = () => {
+    filterDispatch({ type: "CLEAR_FILTERS" });
+  };
+
   return (
     <div className="filter-modal-wrapper">
       <div className="filter-modal">
@@ -30,8 +38,12 @@ export const Filter = () => {
         <Rating />
         <FreeCancel />
         <div className="filter-buttons">
-          <button className="clear-button">Clear</button>
-          <button className="apply-button">Apply</button>
+          <button className="clear-button" onClick={handleClearFilterClick}>
+            Clear
+          </button>
+          <button className="apply-button" onClick={handleFilterApplyClick}>
+            Apply
+          </button>
         </div>
       </div>
     </div>

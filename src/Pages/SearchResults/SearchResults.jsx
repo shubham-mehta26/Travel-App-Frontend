@@ -1,7 +1,20 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { Navbar, SearchStayWithDate, HotelCard } from "../../components";
-import { useDate, useCategory } from "../../context";
+import {
+  Navbar,
+  Categories,
+  Filter,
+  SearchStayWithDate,
+  HotelCard,
+} from "../../components";
+import { useDate, useCategory, useFilter } from "../../context";
+import {
+  getHotelsByPriceRange,
+  getHotelsByRoomsAndBeds,
+  getHotelsByPropertyType,
+  getHotelsByRatings,
+  getHotelsByCancelation,
+} from "../../Utils";
 import "./SearchResults.css";
 
 export const SearchResults = () => {
@@ -9,6 +22,17 @@ export const SearchResults = () => {
   const [hotels, setHotels] = useState([]);
   const { hotelCategory } = useCategory();
   const { isSearchModalOpen } = useDate();
+  const {
+    noOfBathrooms,
+    noOfBedrooms,
+    noOfBeds,
+    propertyType,
+    applyFilter,
+    priceRange,
+    travelRating,
+    isCancelable,
+    isFilterModalOpen,
+  } = useFilter();
 
   useEffect(() => {
     (async () => {
@@ -31,13 +55,48 @@ export const SearchResults = () => {
       state.toLowerCase() === destination.toLowerCase()
   );
 
+  const [filteredHotels, setFilteredHotels] = useState(filteredSearchResults);
+  useEffect(() => {
+    const updatedFilteredByPriceRangeHotels = getHotelsByPriceRange(
+      filteredSearchResults,
+      priceRange
+    );
+    const updatedFilteredByBeds = getHotelsByRoomsAndBeds(
+      updatedFilteredByPriceRangeHotels,
+      noOfBathrooms,
+      noOfBedrooms,
+      noOfBeds
+    );
+
+    const updatedFilteredByPropertyType = getHotelsByPropertyType(
+      updatedFilteredByBeds,
+      propertyType
+    );
+
+    const updatedFilteredByRatings = getHotelsByRatings(
+      updatedFilteredByPropertyType,
+      travelRating
+    );
+
+    const updatedFilteredByCancelation = getHotelsByCancelation(
+      updatedFilteredByRatings,
+      isCancelable
+    );
+
+    const finalFilteredHotels = updatedFilteredByCancelation;
+    setFilteredHotels(finalFilteredHotels);
+    // eslint-disable-next-line
+  }, [applyFilter, hotels]);
+
   return (
     <Fragment>
       <Navbar />
+      <Categories />
+      {isFilterModalOpen && <Filter />}
       {isSearchModalOpen && <SearchStayWithDate />}
       <div className="main search-results-main">
-        {filteredSearchResults ? (
-          filteredSearchResults.map((hotel) => (
+        {filteredHotels ? (
+          filteredHotels.map((hotel) => (
             <HotelCard key={hotel.id} hotel={hotel} />
           ))
         ) : (

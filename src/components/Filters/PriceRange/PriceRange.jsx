@@ -33,12 +33,7 @@ export const PriceRange = () => {
       });
     }
   };
-  console.log(priceRange);
-  // const [value, setValue] = React.useState([20, 37]);
 
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
   return (
     <div className="filter-container">
       <div className="filter-label">Price Range</div>

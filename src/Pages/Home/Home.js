@@ -2,6 +2,13 @@ import "./Home.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCategory, useDate, useFilter } from "../../context";
+import {
+  getHotelsByPriceRange,
+  getHotelsByRoomsAndBeds,
+  getHotelsByPropertyType,
+  getHotelsByRatings,
+  getHotelsByCancelation,
+} from "../../Utils";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
@@ -20,7 +27,17 @@ export const Home = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const { hotelCategory } = useCategory();
   const { isSearchModalOpen } = useDate();
-  const { isFilterModalOpen } = useFilter();
+  const {
+    noOfBathrooms,
+    noOfBedrooms,
+    noOfBeds,
+    applyFilter,
+    propertyType,
+    priceRange,
+    travelRating,
+    isCancelable,
+    isFilterModalOpen,
+  } = useFilter();
 
   useEffect(() => {
     (async () => {
@@ -56,6 +73,41 @@ export const Home = () => {
       }
     }, 1000);
   };
+
+  const [filteredHotels, setFilteredHotels] = useState(hotels);
+
+  useEffect(() => {
+    const updatedFilteredByPriceRangeHotels = getHotelsByPriceRange(
+      hotels,
+      priceRange
+    );
+    const updatedFilteredByBeds = getHotelsByRoomsAndBeds(
+      updatedFilteredByPriceRangeHotels,
+      noOfBathrooms,
+      noOfBedrooms,
+      noOfBeds
+    );
+
+    const updatedFilteredByPropertyType = getHotelsByPropertyType(
+      updatedFilteredByBeds,
+      propertyType
+    );
+
+    const updatedFilteredByRatings = getHotelsByRatings(
+      updatedFilteredByPropertyType,
+      travelRating
+    );
+
+    const updatedFilteredByCancelation = getHotelsByCancelation(
+      updatedFilteredByRatings,
+      isCancelable
+    );
+
+    const finalFilteredHotels = updatedFilteredByCancelation;
+    setFilteredHotels(finalFilteredHotels);
+    // eslint-disable-next-line
+  }, [applyFilter, hotels]);
+
   return (
     <>
       <Navbar />
@@ -71,8 +123,8 @@ export const Home = () => {
           endMessage={<p className="end-message">No more Hotels....</p>}
         >
           <main className="main">
-            {hotels &&
-              hotels.map((hotel) => (
+            {filteredHotels &&
+              filteredHotels.map((hotel) => (
                 <HotelCard key={hotel._id} hotel={hotel} />
               ))}
           </main>
