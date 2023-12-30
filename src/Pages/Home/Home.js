@@ -1,7 +1,7 @@
 import "./Home.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useCategory, useDate, useFilter } from "../../context";
+import { useCategory, useDate, useFilter, useAuth } from "../../context";
 import {
   getHotelsByPriceRange,
   getHotelsByRoomsAndBeds,
@@ -17,6 +17,7 @@ import {
   Categories,
   SearchStayWithDate,
   Filter,
+  AuthModal,
 } from "../../components";
 
 export const Home = () => {
@@ -27,6 +28,8 @@ export const Home = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const { hotelCategory } = useCategory();
   const { isSearchModalOpen } = useDate();
+  const { isAuthModalOpen } = useAuth();
+
   const {
     noOfBathrooms,
     noOfBedrooms,
@@ -108,6 +111,7 @@ export const Home = () => {
     // eslint-disable-next-line
   }, [applyFilter, hotels]);
 
+  console.log(isAuthModalOpen);
   return (
     <>
       <Navbar />
@@ -134,6 +138,7 @@ export const Home = () => {
       )}
       {isSearchModalOpen && <SearchStayWithDate />}
       {isFilterModalOpen && <Filter />}
+      {isAuthModalOpen && <AuthModal />}
     </>
   );
 };

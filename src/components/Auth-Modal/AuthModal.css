@@ -1,0 +1,74 @@
+.auth-modal-wrapper {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+}
+.auth-modal {
+  position: relative;
+  flex: 0 0 calc(40% - 2rem);
+  background-color: white;
+  border-radius: 1rem;
+  overflow-x: hidden;
+}
+.auth-modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.auth-modal-buttons button {
+  width: 50%;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: Poppins;
+  cursor: pointer;
+  padding: 1rem;
+}
+.selected1 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: inset 0 -2px 0 var(--primary-color);
+}
+.close-auth-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 2rem;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+.close-auth-logo:hover {
+  background-color: var(--primary-color);
+  & ion-icon {
+    color: white;
+  }
+}
+.close-auth-logo ion-icon {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+@media screen and (max-width: 1120px) {
+  .auth-modal {
+    flex: 0 0 calc(60% - 2rem);
+  }
+}
+@media screen and (max-width: 660px) {
+  .auth-modal {
+    flex: 0 0 calc(100%);
+  }
+  .auth-modal-buttons button {
+    font-size: 1.2rem;
+  }
+}

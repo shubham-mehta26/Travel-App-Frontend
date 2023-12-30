@@ -6,6 +6,7 @@ import {
   DateProvider,
   MobileViewProvider,
   FilterProvider,
+  AuthProvider,
 } from "./context";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -17,7 +18,9 @@ root.render(
         <DateProvider>
           <MobileViewProvider>
             <FilterProvider>
-              <App />
+              <AuthProvider>
+                <App />
+              </AuthProvider>
             </FilterProvider>
           </MobileViewProvider>
         </DateProvider>

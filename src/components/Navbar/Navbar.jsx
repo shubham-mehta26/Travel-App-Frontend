@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "../Icons/logo.svg";
-import { useDate, useMobileView } from "../../context";
+import { useDate, useMobileView, useAuth } from "../../context";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
@@ -9,6 +9,7 @@ export const Navbar = () => {
     useDate();
   const { mobileView } = useMobileView();
   const navigate = useNavigate();
+  const { AuthDispatch } = useAuth();
 
   const handleSearchClick = () => {
     dateDispatch({
@@ -21,6 +22,12 @@ export const Navbar = () => {
       type: "RESET",
     });
     navigate("/");
+  };
+
+  const handleAuthClick = () => {
+    AuthDispatch({
+      type: "OPEN_AUTH_MODAL",
+    });
   };
 
   return (
@@ -56,7 +63,7 @@ export const Navbar = () => {
       {
         <nav className="User">
           <div className="userName">Hi, User</div>
-          <div className="login">
+          <div className="login" onClick={handleAuthClick}>
             {/* <span><ion-icon name="menu-outline"></ion-icon></span> */}
             <span>
               <ion-icon name="person-outline"></ion-icon>

@@ -7,3 +7,6 @@ export { FinalPrice } from "./FinalPrice/FinalPrice";
 export { DateSelector } from "./DateSelector/DateSelector";
 export { SearchStayWithDate } from "./SearchStayWithDate/SearchStayWithDate";
 export { Filter } from "./Filters/Filter";
+export { AuthLogin } from "./Auth/Auth-Login";
+export { AuthSignUp } from "./Auth/Auth-SignUp";
+export { AuthModal } from "./Auth-Modal/AuthModal";

@@ -1,0 +1,75 @@
+.auth-container-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+.auth-container {
+  flex: 0 0 calc(80% - 2rem);
+  padding: 2rem;
+  font-family: "Popins", sans-serif;
+}
+.auth-part {
+  position: relative;
+  width: 90%;
+  margin: 0.3rem 0;
+}
+.auth-part input {
+  width: 100%;
+  padding: 1.5rem 0;
+  border: none;
+  border-radius: 1rem;
+}
+.auth-part input::placeholder {
+  /* font-size: 0.69rem; */
+  font-size: 0.8rem;
+}
+.auth-part input:focus {
+  outline: none;
+}
+.asterisk {
+  color: red;
+}
+.auth-part label {
+  position: absolute;
+  left: -0.5rem;
+  top: -0.4rem;
+  font-size: 1rem;
+  color: rgb(49, 49, 49);
+  transition: all 0.3s ease;
+}
+.auth-primary-btn button {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.auth-primary-btn button:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
+  color: white;
+}
+@media screen and (max-width: 660px) {
+  .auth-container {
+    flex: 0 0 calc(100% - 1rem);
+  }
+  .auth-part {
+    margin: 0.3rem 0;
+  }
+  .auth-part input::placeholder {
+    font-size: 0.8rem;
+  }
+  .auth-part label {
+    position: absolute;
+    left: -0.5rem;
+    top: -0.4rem;
+    font-size: 1rem;
+    color: rgb(49, 49, 49);
+    transition: all 0.3s ease;
+  }
+}
