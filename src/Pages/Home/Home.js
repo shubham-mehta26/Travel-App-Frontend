@@ -111,7 +111,6 @@ export const Home = () => {
     // eslint-disable-next-line
   }, [applyFilter, hotels]);
 
-  console.log(isAuthModalOpen);
   return (
     <>
       <Navbar />
