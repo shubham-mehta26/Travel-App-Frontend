@@ -20,16 +20,18 @@
   width: 100%;
   margin: 0.9rem 0;
   padding: 0.6rem 0;
-  border: none;
+  border: none !important;
   border-radius: 1rem;
   padding-left: 2rem;
   background-color: white;
+  outline: none !important;
 }
 .auth-part input::placeholder {
   /* font-size: 0.69rem; */
   font-size: 0.8rem;
 }
 .auth-part input:focus {
+  /* border: 1px solid black !important; */
   outline: none;
 }
 .asterisk {
