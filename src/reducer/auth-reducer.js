@@ -21,7 +21,6 @@ export const authReducer = (state, { type, payload }) => {
         number: payload,
       };
     case "NAME":
-      console.log(payload);
       return {
         ...state,
         username: payload,
@@ -40,6 +39,15 @@ export const authReducer = (state, { type, payload }) => {
       return {
         ...state,
         confirmPassword: payload,
+      };
+    case "CLEAR_USER_DATA":
+      return {
+        ...state,
+        username: "",
+        number: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
       };
     default:
       return state;

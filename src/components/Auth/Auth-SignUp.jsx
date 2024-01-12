@@ -8,15 +8,16 @@ import {
 import { signupHandler } from "../../services";
 import "./Auth.css";
 
+let isNumberValid,
+  isNameValid,
+  isEmailValid,
+  isPasswordValid,
+  isConfirmPasswordValid;
+
 export const AuthSignUp = () => {
   const { username, email, password, number, confirmPassword, AuthDispatch } =
     useAuth();
 
-  let isNumberValid,
-    isNameValid,
-    isEmailValid,
-    isPasswordValid,
-    isConfirmPasswordValid;
   const handleNumberChange = (event) => {
     isNumberValid = validateNumber(event.target.value);
     if (isNumberValid) {
@@ -83,13 +84,20 @@ export const AuthSignUp = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log({ isNumberValid, isNameValid, isEmailValid, isPasswordValid });
-    console.log({ username, email, password, number, confirmPassword });
-    if (password === confirmPassword) {
+    if (
+      password === confirmPassword &&
+      isNumberValid &&
+      isNameValid &&
+      isEmailValid &&
+      isPasswordValid
+    ) {
       signupHandler(username, number, email, password);
     } else {
       console.log("Error posting data");
     }
+    AuthDispatch({
+      type: "CLEAR_USER_DATA",
+    });
   };
   return (
     <div className="auth-container-wrapper">
