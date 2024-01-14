@@ -7,6 +7,7 @@ import {
   MobileViewProvider,
   FilterProvider,
   AuthProvider,
+  WishListProvider,
 } from "./context";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -19,7 +20,9 @@ root.render(
           <MobileViewProvider>
             <FilterProvider>
               <AuthProvider>
-                <App />
+                <WishListProvider>
+                  <App />
+                </WishListProvider>
               </AuthProvider>
             </FilterProvider>
           </MobileViewProvider>

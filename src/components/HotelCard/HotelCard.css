@@ -1,141 +1,148 @@
-.Hotel-Card{
-    /* width: 320px; */
-    flex: 0 0 calc(25% - 30px);
-    /* max-width: 300px; */
-    aspect-ratio: 1.154;
-    position: relative;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    cursor: pointer;
+.Hotel-Card {
+  /* width: 320px; */
+  flex: 0 0 calc(25% - 30px);
+  /* max-width: 300px; */
+  aspect-ratio: 1.154;
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
-.img-container{
-    position: relative;
-    height: 80% ;
-    transition: all 0.5s ease-in-out;
+.img-container {
+  position: relative;
+  height: 80%;
+  transition: all 0.5s ease-in-out;
 }
-.img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 .image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, rgb(12, 12, 12), rgba(255, 255, 255, 0));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgb(12, 12, 12), rgba(255, 255, 255, 0));
 }
-.image-footer{
-    padding: 8px 20px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    font-size: 0.8rem;
-    font-family: "Gilroy", sans-serif;
-    font-weight: 100;
+.image-footer {
+  padding: 8px 20px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 0.8rem;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 100;
 }
-.wishlist button{
-    
-    position: absolute;
-    background: white;
-    bottom: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1.2rem;
+.wishlist button {
+  position: absolute;
+  background: white;
+  bottom: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
-.hotel-name{
-    width: 80%;
+.wishlist button ion-icon:hover {
+  scale: 1.2;
 }
-.rating{
-    position: absolute;
-    right: 10px;
+ion-icon {
+  --ionicon-stroke-width: 32px;
+  --ionicon-fill-none: "red";
 }
-.rating ion-icon , .location ion-icon{
-    font-size: 13px;
-    padding-right: 4px;
-    color: var(--primary-color);
+.hotel-name {
+  width: 80%;
 }
-.card-details div{
-    font-size: 0.8rem;
-    padding: 3px 0;
+.rating {
+  position: absolute;
+  right: 10px;
 }
-.rupees-logo{
-    color: var(--primary-color);
+.rating ion-icon,
+.location ion-icon {
+  font-size: 13px;
+  padding-right: 4px;
+  color: var(--primary-color);
 }
-.card-details{
-    background: var(--accent-color);
-    border-bottom-left-radius: 8px ;
-    border-bottom-right-radius: 8px ;
-    font-family: "Gilroy" , sans-serif;
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 20px;
+.card-details div {
+  font-size: 0.8rem;
+  padding: 3px 0;
 }
-.details{
-    width: 100%;
+.rupees-logo {
+  color: var(--primary-color);
 }
-.location{
-    width: 90%;
-    min-height: 40px;
-    margin-left: 20px;
+.card-details {
+  background: var(--accent-color);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: "Gilroy", sans-serif;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 20px;
 }
-.details  ion-icon:first-child{
-    font-size: 1rem;
-    color: var(--primary-color);
-    position: absolute;
-    left: 17px;
-    top: 9px;
+.details {
+  width: 100%;
 }
-.rupees-logo{
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    padding-right: 9px;
+.location {
+  width: 90%;
+  min-height: 40px;
+  margin-left: 20px;
 }
-.end-message{
-    text-align: center;
-    color: var(--primary-color);
-    font-family: "Sequel" , sans-serif;
-    font-size: 1.4rem;
+.details ion-icon:first-child {
+  font-size: 1rem;
+  color: var(--primary-color);
+  position: absolute;
+  left: 17px;
+  top: 9px;
 }
-.loading{
-    position: absolute;
-    bottom: 10px;
-    text-align: center;
-    color: var(--primary-color);
-    font-family: "Sequel" , sans-serif;
-    font-size: 1.4rem;
+.rupees-logo {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  padding-right: 9px;
 }
-.price{
-    font-weight: bolder;
+.end-message {
+  text-align: center;
+  color: var(--primary-color);
+  font-family: "Sequel", sans-serif;
+  font-size: 1.4rem;
+}
+.loading {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  color: var(--primary-color);
+  font-family: "Sequel", sans-serif;
+  font-size: 1.4rem;
+}
+.price {
+  font-weight: bolder;
 }
 
-@media screen and (max-width:1200px) {
-    .Hotel-Card{
-        flex: 0 0 calc(33.33% - 25px);
-    }
+@media screen and (max-width: 1200px) {
+  .Hotel-Card {
+    flex: 0 0 calc(33.33% - 25px);
+  }
 }
 
-@media screen and (max-width:900px){
-    .Hotel-Card{
-        flex: 0 0 calc(50% - 20px);
-    }
+@media screen and (max-width: 900px) {
+  .Hotel-Card {
+    flex: 0 0 calc(50% - 20px);
+  }
 }
-@media screen and (max-width:575px){
-    .Hotel-Card{
-        flex: 0 0 calc(100% - 10px);
-    }
+@media screen and (max-width: 575px) {
+  .Hotel-Card {
+    flex: 0 0 calc(100% - 10px);
+  }
 }

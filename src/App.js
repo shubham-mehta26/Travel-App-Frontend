@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home, SingleHotel, SearchResults } from "./Pages";
+import { Home, SingleHotel, SearchResults, Wishlist } from "./Pages";
 import { Route, Routes } from "react-router-dom";
 import { AlertPop } from "./components";
 function App() {
@@ -12,6 +12,7 @@ function App() {
           element={<SingleHotel />}
         />
         <Route path="/hotels/:address" element={<SearchResults />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <AlertPop />
     </div>

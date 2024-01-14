@@ -13,7 +13,7 @@ const initialValue = {
   isLoggedIn: false,
   alertShow: false,
   alertMessage: "",
-  alertType: "",
+  alertType: "success",
   selectedTab: "login",
 };
 

@@ -1,13 +1,13 @@
 .popup {
-  z-index: 1;
+  z-index: 1000;
   width: 50vb;
   height: 70px;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  display: hidden;
+  display: none;
 }
-.popup.show {
+.popup.visible {
   display: block;
 }
 @media screen and (max-width: 660px) {

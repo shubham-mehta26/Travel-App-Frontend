@@ -64,7 +64,7 @@ export const authReducer = (state, { type, payload }) => {
     case "ALERT_POP":
       return {
         ...state,
-        // alertShow: payload.show,
+        alertShow: payload.show,
         alertMessage: payload.message,
         alertType: payload.type,
       };
