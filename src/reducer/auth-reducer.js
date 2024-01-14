@@ -49,6 +49,25 @@ export const authReducer = (state, { type, payload }) => {
         password: "",
         confirmPassword: "",
       };
+    case "SET_ACCESS_TOKEN":
+      return {
+        ...state,
+        accessToken: payload,
+        isLoggedIn: true,
+      };
+    case "SET_USERNAME":
+      const firstName = payload.split(" ")[0];
+      return {
+        ...state,
+        name: firstName,
+      };
+    case "ALERT_POP":
+      return {
+        ...state,
+        // alertShow: payload.show,
+        alertMessage: payload.message,
+        alertType: payload.type,
+      };
     default:
       return state;
   }

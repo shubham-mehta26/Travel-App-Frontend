@@ -8,8 +8,8 @@ export const Navbar = () => {
   const { destination, guests, checkInDate, checkOutDate, dateDispatch } =
     useDate();
   const { mobileView } = useMobileView();
+  const { isLoggedIn, name, AuthDispatch } = useAuth();
   const navigate = useNavigate();
-  const { AuthDispatch } = useAuth();
 
   const handleSearchClick = () => {
     dateDispatch({
@@ -62,7 +62,7 @@ export const Navbar = () => {
       )}
       {
         <nav className="User">
-          <div className="userName">Hi, User</div>
+          <div className="userName">Hi, {isLoggedIn ? name : "Guest"}</div>
           <div className="login" onClick={handleAuthClick}>
             {/* <span><ion-icon name="menu-outline"></ion-icon></span> */}
             <span>

@@ -33,14 +33,142 @@ export const AuthLogin = () => {
     }
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (isNumberValid && isPasswordValid) {
-      loginHandler(number, password);
+      try {
+        const { accessToken, username } = await loginHandler(number, password);
+        AuthDispatch({
+          type: "SET_ACCESS_TOKEN",
+          payload: accessToken,
+        });
+        AuthDispatch({
+          type: "SET_USERNAME",
+          payload: username,
+        });
+        AuthDispatch({
+          type: "OPEN_AUTH_MODAL",
+        });
+        AuthDispatch({
+          type: "CLEAR_USER_DATA",
+        });
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: true,
+            type: "success",
+            message: "Login Successful",
+          },
+        });
+        setTimeout(() => {
+          AuthDispatch({
+            type: "ALERT_POP",
+            payload: {
+              show: false,
+              type: "",
+              message: "",
+            },
+          });
+        }, 1500);
+      } catch (error) {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: true,
+            type: "error",
+            message: "Invalid Credentials",
+          },
+        });
+        setTimeout(() => {
+          AuthDispatch({
+            type: "ALERT_POP",
+            payload: {
+              show: false,
+              type: "",
+              message: "",
+            },
+          });
+        }, 1500);
+      }
+    } else {
+      AuthDispatch({
+        type: "ALERT_POP",
+        payload: {
+          show: true,
+          type: "error",
+          message: "Invalid Credentials",
+        },
+      });
+      setTimeout(() => {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: false,
+            type: "",
+            message: "",
+          },
+        });
+      }, 1500);
     }
-    AuthDispatch({
-      type: "CLEAR_USER_DATA",
-    });
+  };
+
+  const handleLoginTestCredentials = async (e) => {
+    e.preventDefault();
+    try {
+      const { accessToken, username } = await loginHandler(9999999999, "admin");
+      AuthDispatch({
+        type: "SET_ACCESS_TOKEN",
+        payload: accessToken,
+      });
+      AuthDispatch({
+        type: "SET_USERNAME",
+        payload: username,
+      });
+      AuthDispatch({
+        type: "OPEN_AUTH_MODAL",
+      });
+      AuthDispatch({
+        type: "CLEAR_USER_DATA",
+      });
+      AuthDispatch({
+        type: "ALERT_POP",
+        payload: {
+          show: true,
+          type: "success",
+          message: "Login Successful",
+        },
+      });
+      setTimeout(() => {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: false,
+            type: "",
+            message: "",
+          },
+        });
+      }, 1500);
+    } catch (error) {
+      console.error("Login failed:", error.message);
+      AuthDispatch({
+        type: "ALERT_POP",
+        payload: {
+          show: true,
+          type: "error",
+          message: "Invalid Credentials",
+        },
+      });
+      setTimeout(() => {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: false,
+            type: "",
+            message: "",
+          },
+        });
+      }, 1500);
+    }
   };
 
   return (
@@ -76,7 +204,9 @@ export const AuthLogin = () => {
             <button type="submit">Login</button>
           </div>
           <div className="auth-primary-btn">
-            <button type="submit">Login with Test credentials</button>
+            <button onClick={handleLoginTestCredentials}>
+              Login with Test credentials
+            </button>
           </div>
         </form>
       </div>

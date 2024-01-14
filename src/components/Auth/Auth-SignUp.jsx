@@ -92,8 +92,46 @@ export const AuthSignUp = () => {
       isPasswordValid
     ) {
       signupHandler(username, number, email, password);
+      AuthDispatch({
+        type: "ALERT_POP",
+        payload: {
+          show: true,
+          type: "success",
+          message: "Account Created Successfully",
+        },
+      });
+      setTimeout(() => {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: false,
+            type: "",
+            message: "",
+          },
+        });
+      }, 1500);
+      AuthDispatch({
+        type: "OPEN_AUTH_MODAL",
+      });
     } else {
-      console.log("Error posting data");
+      AuthDispatch({
+        type: "ALERT_POP",
+        payload: {
+          show: true,
+          type: "error",
+          message: "Error Creating Account",
+        },
+      });
+      setTimeout(() => {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: false,
+            type: "",
+            message: "",
+          },
+        });
+      }, 1500);
     }
     AuthDispatch({
       type: "CLEAR_USER_DATA",

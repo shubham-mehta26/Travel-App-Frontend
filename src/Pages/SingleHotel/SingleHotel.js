@@ -9,7 +9,9 @@ import {
   FinalPrice,
   SearchStayWithDate,
   Navbar,
+  AuthModal,
 } from "../../components";
+import { useAuth } from "../../context";
 import "./SingleHotel.css";
 import img from "../../components/Icons/logo.svg";
 
@@ -18,6 +20,7 @@ export const SingleHotel = () => {
   const [singleHotel, setSingleHotel] = useState({});
   const { isSearchModalOpen } = useDate();
   const { mobileView } = useMobileView();
+  const { isAuthModalOpen } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,6 +61,7 @@ export const SingleHotel = () => {
         </div>
       </main>
       {isSearchModalOpen && <SearchStayWithDate />}
+      {isAuthModalOpen && <AuthModal />}
     </>
   );
 };

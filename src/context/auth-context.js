@@ -8,6 +8,12 @@ const initialValue = {
   email: "",
   password: "",
   confirmPassword: "",
+  accessToken: "",
+  name: "",
+  isLoggedIn: false,
+  alertShow: false,
+  alertMessage: "",
+  alertType: "",
   selectedTab: "login",
 };
 
@@ -23,6 +29,12 @@ const AuthProvider = ({ children }) => {
       password,
       confirmPassword,
       selectedTab,
+      accessToken,
+      isLoggedIn,
+      name,
+      alertShow,
+      alertMessage,
+      alertType,
     },
     AuthDispatch,
   ] = useReducer(authReducer, initialValue);
@@ -37,6 +49,12 @@ const AuthProvider = ({ children }) => {
         password,
         confirmPassword,
         selectedTab,
+        accessToken,
+        name,
+        isLoggedIn,
+        alertShow,
+        alertMessage,
+        alertType,
         AuthDispatch,
       }}
     >

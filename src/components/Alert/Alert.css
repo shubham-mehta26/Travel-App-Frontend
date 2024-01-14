@@ -1,0 +1,20 @@
+.popup {
+  z-index: 1;
+  width: 50vb;
+  height: 70px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: hidden;
+}
+.popup.show {
+  display: block;
+}
+@media screen and (max-width: 660px) {
+  .popup {
+    width: 60vw;
+    height: 100px;
+    bottom: 2rem;
+    right: 1rem;
+  }
+}

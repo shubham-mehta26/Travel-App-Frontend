@@ -12,7 +12,7 @@ export const loginHandler = async (number, password) => {
         password: password,
       }
     );
-    console.log({ accessToken, username });
+    return { accessToken, username };
   } catch (err) {
     console.error(err);
   }
