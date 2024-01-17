@@ -100,6 +100,9 @@ export const AuthSignUp = () => {
           message: "Account Created Successfully",
         },
       });
+      AuthDispatch({
+        type: "SET_TO_LOGIN",
+      });
       setTimeout(() => {
         AuthDispatch({
           type: "ALERT_POP",
@@ -110,9 +113,6 @@ export const AuthSignUp = () => {
           },
         });
       }, 1500);
-      AuthDispatch({
-        type: "OPEN_AUTH_MODAL",
-      });
     } else {
       AuthDispatch({
         type: "ALERT_POP",
