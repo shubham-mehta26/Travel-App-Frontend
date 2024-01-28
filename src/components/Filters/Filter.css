@@ -89,11 +89,12 @@
     height: 80vh;
     position: relative;
     flex: 0 0 calc(100%);
+    padding-bottom: 7vh;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
   .filter-buttons button {
-    position: absolute;
+    position: fixed;
     width: 50%;
     height: 7vh;
     bottom: 0;
