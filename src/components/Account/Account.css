@@ -1,0 +1,41 @@
+.account-main {
+  position: absolute;
+  width: 10rem;
+  border: 1px solid var(--primary-color);
+  z-index: 100;
+  right: 0rem;
+  top: 3.8rem;
+  background-color: #fff;
+  color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.account-box {
+  height: 3rem;
+  color: var(--primary-color);
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account-box:hover {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+  .account-main {
+    position: absolute;
+    width: 300%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    top: -3rem;
+  }
+  .account-box {
+    height: 3rem;
+    width: 33%;
+    border-right: 1px solid var(--primary-color);
+  }
+}

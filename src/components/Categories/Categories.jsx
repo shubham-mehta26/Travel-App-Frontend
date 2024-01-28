@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Tabs, Tab, Box } from "@mui/material";
 import { useCategory, useMobileView, useFilter } from "../../context";
+import { useNavigate } from "react-router-dom";
 import "./Categories.css";
 import img from "../Icons/filter.png";
 
@@ -12,6 +13,7 @@ export const Categories = () => {
   const { setHotelCategory } = useCategory();
   const { mobileView } = useMobileView();
   const { filterDispatch } = useFilter();
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -21,6 +23,9 @@ export const Categories = () => {
     setHotelCategory(category.category);
   };
 
+  const navigateHome = () => {
+    navigate("/");
+  };
   useEffect(() => {
     (async () => {
       try {
@@ -77,8 +82,15 @@ export const Categories = () => {
           ))}
         </Tabs>
       </Box>
-      <div className="filter-button" onClick={handleFilterClick}>
-        <img src={img} alt="" /> Filters
+      <div className="filter-button">
+        {mobileView && (
+          <div className="mobile-nav home-btn" onClick={navigateHome}>
+            <ion-icon name="home-outline"></ion-icon> Home
+          </div>
+        )}
+        <div className="mobile-nav" onClick={handleFilterClick}>
+          <img src={img} alt="" /> Filters
+        </div>
       </div>
     </div>
   );

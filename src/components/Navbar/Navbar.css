@@ -39,6 +39,7 @@
   height: 30px;
 }
 .User {
+  position: relative;
   width: 15%;
   display: flex;
   justify-content: space-around;
@@ -135,7 +136,7 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    width: 50%;
+    width: 34%;
     height: 7.5vh;
     margin: 0;
     z-index: 0;
@@ -143,8 +144,27 @@
     justify-content: center;
     flex-direction: row-reverse;
     background-color: #fafafa;
-    & .login {
-      margin-right: 1rem;
+  }
+  .login {
+    margin-right: 0;
+    border: none;
+  }
+  .person-outline {
+    border: none;
+  }
+  .mobile-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid var(--primary-color);
+    & ion-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-right: 0.5rem;
+      color: var(--primary-color);
     }
   }
 }

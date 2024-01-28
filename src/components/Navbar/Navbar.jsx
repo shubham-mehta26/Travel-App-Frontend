@@ -3,12 +3,13 @@ import "./Navbar.css";
 import logo from "../Icons/logo.svg";
 import { useDate, useMobileView, useAuth } from "../../context";
 import { useNavigate } from "react-router-dom";
+import { Account } from "../";
 
 export const Navbar = () => {
   const { destination, guests, checkInDate, checkOutDate, dateDispatch } =
     useDate();
   const { mobileView } = useMobileView();
-  const { isLoggedIn, name, AuthDispatch } = useAuth();
+  const { isLoggedIn, name, AuthDispatch, isAccountModalOpen } = useAuth();
   const navigate = useNavigate();
 
   const handleSearchClick = () => {
@@ -25,9 +26,13 @@ export const Navbar = () => {
   };
 
   const handleAuthClick = () => {
-    AuthDispatch({
-      type: "OPEN_AUTH_MODAL",
-    });
+    !isLoggedIn
+      ? AuthDispatch({
+          type: "OPEN_AUTH_MODAL",
+        })
+      : AuthDispatch({
+          type: "OPEN_ACCOUNT_MODAL",
+        });
   };
 
   return (
@@ -64,11 +69,11 @@ export const Navbar = () => {
         <nav className="User">
           <div className="userName">Hi, {isLoggedIn ? name : "Guest"}</div>
           <div className="login" onClick={handleAuthClick}>
-            {/* <span><ion-icon name="menu-outline"></ion-icon></span> */}
             <span>
               <ion-icon name="person-outline"></ion-icon>
             </span>
           </div>
+          {isAccountModalOpen && <Account />}
         </nav>
       }
       {mobileView && (

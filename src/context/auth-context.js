@@ -3,6 +3,7 @@ import { authReducer } from "../reducer";
 
 const initialValue = {
   isAuthModalOpen: false,
+  isAccountModalOpen: false,
   username: "",
   number: "",
   email: "",
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }) => {
   const [
     {
       isAuthModalOpen,
+      isAccountModalOpen,
       username,
       number,
       email,
@@ -43,6 +45,7 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuthModalOpen,
+        isAccountModalOpen,
         username,
         number,
         email,

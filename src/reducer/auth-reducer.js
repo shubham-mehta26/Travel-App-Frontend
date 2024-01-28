@@ -5,6 +5,22 @@ export const authReducer = (state, { type, payload }) => {
         ...state,
         isAuthModalOpen: !state.isAuthModalOpen,
       };
+    case "OPEN_ACCOUNT_MODAL":
+      return {
+        ...state,
+        isAccountModalOpen: !state.isAccountModalOpen,
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        isLoggedIn: false,
+        accessToken: "",
+        username: "Guest",
+        number: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      };
     case "SET_TO_LOGIN":
       return {
         ...state,

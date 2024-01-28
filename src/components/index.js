@@ -11,3 +11,4 @@ export { AuthLogin } from "./Auth/Auth-Login";
 export { AuthSignUp } from "./Auth/Auth-SignUp";
 export { AuthModal } from "./Auth-Modal/AuthModal";
 export { AlertPop } from "./Alert/Alert";
+export { Account } from "./Account/Account";
