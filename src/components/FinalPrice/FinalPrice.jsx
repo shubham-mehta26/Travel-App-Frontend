@@ -2,31 +2,37 @@ import "./FinalPrice.css";
 import { React, useEffect, useState } from "react";
 import { useDate } from "../../context";
 import { DateSelector } from "../DateSelector/DateSelector";
+import { useNavigate } from "react-router-dom";
 
 export const FinalPrice = ({ singleHotel }) => {
-  const { price, rating } = singleHotel;
-  const { guests,checkInDate,checkOutDate, dateDispatch } = useDate();
+  const { _id, price, rating } = singleHotel;
+  const { guests, checkInDate, checkOutDate, dateDispatch } = useDate();
   const [numberOfNights, setNumberOfNights] = useState(1);
+  const navigate = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
     if (checkOutDate && checkInDate) {
-      const nights = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+      const nights = Math.floor(
+        (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)
+      );
       setNumberOfNights(nights);
     }
-  },[checkInDate,checkOutDate])
-  
-
+  }, [checkInDate, checkOutDate]);
 
   const handleDecreament = () => {
     dateDispatch({
       type: "DECREMENT",
-    })
-  }
+    });
+  };
   const handleIncreament = () => {
     dateDispatch({
       type: "INCREAMENT",
-    })
-  }
+    });
+  };
+
+  const handleReserveClick = () => {
+    navigate(`/confirm-booking/stay/${_id}`);
+  };
   return (
     <div className="price-detail-containe-wrapper">
       <div className="price-detail-container">
@@ -42,11 +48,15 @@ export const FinalPrice = ({ singleHotel }) => {
         <div className="dates">
           <div className="check-in">
             <div className="check-in-text">CHECK-IN</div>
-            <div className="check-in-date"><DateSelector placeholder="Add dates" checkInType="in"/></div>
+            <div className="check-in-date">
+              <DateSelector placeholder="Add dates" checkInType="in" />
+            </div>
           </div>
           <div className="check-out">
             <div className="check-out-text">CHECK-OUT</div>
-            <div className="check-out-date"><DateSelector placeholder="Add dates" checkInType="out"/></div>
+            <div className="check-out-date">
+              <DateSelector placeholder="Add dates" checkInType="out" />
+            </div>
           </div>
         </div>
         <div className="guests">
@@ -66,12 +76,21 @@ export const FinalPrice = ({ singleHotel }) => {
           </div>
         </div>
         <div className="reserve">
-          <button>RESERVE</button>
+          <button
+            disabled={checkInDate && checkOutDate && guests > 0 ? false : true}
+            onClick={handleReserveClick}
+          >
+            RESERVE
+          </button>
         </div>
         <div className="total">
           <div className="nights tt">
-            <div className="nights-calculate">₹ {price} x {(numberOfNights || 1)} night</div>
-            <div className="nights-total">₹ {price * (numberOfNights || 1)}</div>
+            <div className="nights-calculate">
+              ₹ {price} x {numberOfNights || 1} night
+            </div>
+            <div className="nights-total">
+              ₹ {price * (numberOfNights || 1)}
+            </div>
           </div>
           <div className="service tt">
             <div className="service-calculate">Service Fee</div>
@@ -80,7 +99,9 @@ export const FinalPrice = ({ singleHotel }) => {
         </div>
         <div className="amount tt">
           <div className="amount-calculate">TOTAL</div>
-          <div className="amount-total">₹ {price * (numberOfNights || 1) + 200}</div>
+          <div className="amount-total">
+            ₹ {price * (numberOfNights || 1) + 200}
+          </div>
         </div>
       </div>
     </div>
