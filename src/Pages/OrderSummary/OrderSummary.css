@@ -1,0 +1,21 @@
+.summary-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.snoop {
+  width: 100%;
+}
+.paid {
+  margin: 1rem 0;
+  width: 20%;
+}
+.summary-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+.back-to-shopping {
+  margin-top: 1rem;
+  width: 90%;
+}

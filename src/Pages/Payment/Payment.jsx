@@ -39,6 +39,53 @@ export const Payment = () => {
   const handleHome = () => {
     navigate("/");
   };
+
+  // payment gateway
+  const loadScript = (source) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = source;
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handleConfirmBookingClick = async () => {
+    console.log(process.env.REACT_APP_RAZORPAY_KEY);
+    const response = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    if (!response) {
+      console.log({ message: "Razorpay SDK failed to load" });
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_K3JDjNHukQJdaM",
+      amount: price * (numberOfNights || 1) + 200,
+      currency: "INR",
+      name: "YatraWebApp",
+      email: "shubham.sm911@gmail.com",
+      contact: "9999999999",
+      description: "Thank you for booking with us",
+      image:
+        "https://serving.photos.photobox.com/57107225d02bfce95df561a53f229ccb66063ab0e845072f832ea77287f63e44674a8e6c.jpg",
+
+      handler: ({ payment_id }) => {
+        navigate("/order-summary");
+      },
+      prefill: {
+        name: "Shubham Mehta",
+        email: "shubham.sm911@gmail.com",
+        contact: "9999999999",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
     <div className="payment-main-wrapper">
       <header className="heading">
@@ -75,7 +122,12 @@ export const Payment = () => {
             <span>RazorPay</span>
           </div>
           <div className="payment-button">
-            <button className="payment-button">Confirm Booking</button>
+            <button
+              className="payment-button"
+              onClick={handleConfirmBookingClick}
+            >
+              Confirm Booking
+            </button>
           </div>
         </div>
         <div className="payment-part2">
