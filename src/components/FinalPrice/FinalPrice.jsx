@@ -1,14 +1,17 @@
 import "./FinalPrice.css";
 import { React, useEffect, useState } from "react";
-import { useDate } from "../../context";
+import { useDate, useMobileView, useAuth } from "../../context";
 import { DateSelector } from "../DateSelector/DateSelector";
 import { useNavigate } from "react-router-dom";
 
 export const FinalPrice = ({ singleHotel }) => {
   const { _id, price, rating } = singleHotel;
   const { guests, checkInDate, checkOutDate, dateDispatch } = useDate();
+  const [showModal, setShowModal] = useState(false);
   const [numberOfNights, setNumberOfNights] = useState(1);
   const navigate = useNavigate();
+  const { mobileView } = useMobileView();
+  const { AuthDispatch } = useAuth();
 
   useEffect(() => {
     if (checkOutDate && checkInDate) {
@@ -30,12 +33,45 @@ export const FinalPrice = ({ singleHotel }) => {
     });
   };
 
-  const handleReserveClick = () => {
-    navigate(`/confirm-booking/stay/${_id}`);
+  const handleReserveClick = (e) => {
+    if (e.target.innerText === "RESERVE") {
+      setShowModal(true);
+      e.target.innerText = "BOOK NOW";
+    } else {
+      if (checkInDate && checkOutDate && guests > 0) {
+        e.target.innerText = "RESERVE";
+        navigate(`/confirm-booking/stay/${_id}`);
+      } else {
+        AuthDispatch({
+          type: "ALERT_POP",
+          payload: {
+            show: true,
+            type: "error",
+            message: "Please select valid dates and guests",
+          },
+        });
+        setTimeout(() => {
+          AuthDispatch({
+            type: "ALERT_POP",
+            payload: {
+              show: false,
+              type: "",
+              message: "",
+            },
+          });
+        }, 1500);
+      }
+    }
   };
   return (
-    <div className="price-detail-containe-wrapper">
-      <div className="price-detail-container">
+    <div
+      className={`price-detail-containe-wrapper ${
+        showModal ? "show" : "hidden"
+      }`}
+    >
+      <div
+        className={`price-detail-container ${showModal ? "show2" : "hidden"}`}
+      >
         <div className="first">
           <div className="price">
             ₹ {price} <span className="price-span">night</span>{" "}
@@ -49,13 +85,17 @@ export const FinalPrice = ({ singleHotel }) => {
           <div className="check-in">
             <div className="check-in-text">CHECK-IN</div>
             <div className="check-in-date">
-              <DateSelector placeholder="Add dates" checkInType="in" />
+              <DateSelector placeholder="Add dates" checkInType="in" readonly />
             </div>
           </div>
           <div className="check-out">
             <div className="check-out-text">CHECK-OUT</div>
             <div className="check-out-date">
-              <DateSelector placeholder="Add dates" checkInType="out" />
+              <DateSelector
+                placeholder="Add dates"
+                checkInType="out"
+                readonly
+              />
             </div>
           </div>
         </div>
@@ -77,10 +117,10 @@ export const FinalPrice = ({ singleHotel }) => {
         </div>
         <div className="reserve">
           <button
-            disabled={checkInDate && checkOutDate && guests > 0 ? false : true}
+            // disabled={checkInDate && checkOutDate && guests > 0 ? false : true}
             onClick={handleReserveClick}
           >
-            RESERVE
+            {mobileView ? "RESERVE" : "BOOK NOW"}
           </button>
         </div>
         <div className="total">

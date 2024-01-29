@@ -22,7 +22,7 @@ export const OrderSummary = () => {
         <img className="snoop" src={snoopdog} alt="" />
         <img className="paid" src={payGif} alt="" />
         <h1 className="summary-heading">Payment Successful</h1>
-        <div className="payment-button">
+        <div className="back-to-shopping">
           <button className="back-to-shopping" onClick={handleHome}>
             Contine Booking
           </button>
