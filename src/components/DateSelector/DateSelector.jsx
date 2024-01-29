@@ -20,6 +20,8 @@ export const DateSelector = ({ placeholder, checkInType }) => {
       placeholderText={placeholder}
       minDate={checkInType === "in" ? new Date() : checkInDate}
       closeOnScroll={true}
+      onFocus={(e) => e.target.blur()}
+      onKeyDown={(e) => e.preventDefault()}
     />
   );
 };

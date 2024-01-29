@@ -11,7 +11,7 @@ export const FinalPrice = ({ singleHotel }) => {
   const [numberOfNights, setNumberOfNights] = useState(1);
   const navigate = useNavigate();
   const { mobileView } = useMobileView();
-  const { AuthDispatch } = useAuth();
+  const { isLoggedIn, AuthDispatch } = useAuth();
 
   useEffect(() => {
     if (checkOutDate && checkInDate) {
@@ -34,32 +34,38 @@ export const FinalPrice = ({ singleHotel }) => {
   };
 
   const handleReserveClick = (e) => {
-    if (e.target.innerText === "RESERVE") {
-      setShowModal(true);
-      e.target.innerText = "BOOK NOW";
+    if (!isLoggedIn) {
+      AuthDispatch({
+        type: "OPEN_AUTH_MODAL",
+      });
     } else {
-      if (checkInDate && checkOutDate && guests > 0) {
-        e.target.innerText = "RESERVE";
-        navigate(`/confirm-booking/stay/${_id}`);
+      if (e.target.innerText === "RESERVE") {
+        setShowModal(true);
+        e.target.innerText = "BOOK NOW";
       } else {
-        AuthDispatch({
-          type: "ALERT_POP",
-          payload: {
-            show: true,
-            type: "error",
-            message: "Please select valid dates and guests",
-          },
-        });
-        setTimeout(() => {
+        if (checkInDate && checkOutDate && guests > 0) {
+          e.target.innerText = "RESERVE";
+          navigate(`/confirm-booking/stay/${_id}`);
+        } else {
           AuthDispatch({
             type: "ALERT_POP",
             payload: {
-              show: false,
-              type: "",
-              message: "",
+              show: true,
+              type: "error",
+              message: "Please select valid dates and guests",
             },
           });
-        }, 1500);
+          setTimeout(() => {
+            AuthDispatch({
+              type: "ALERT_POP",
+              payload: {
+                show: false,
+                type: "",
+                message: "",
+              },
+            });
+          }, 1500);
+        }
       }
     }
   };
@@ -85,17 +91,13 @@ export const FinalPrice = ({ singleHotel }) => {
           <div className="check-in">
             <div className="check-in-text">CHECK-IN</div>
             <div className="check-in-date">
-              <DateSelector placeholder="Add dates" checkInType="in" readonly />
+              <DateSelector placeholder="Add dates" checkInType="in" />
             </div>
           </div>
           <div className="check-out">
             <div className="check-out-text">CHECK-OUT</div>
             <div className="check-out-date">
-              <DateSelector
-                placeholder="Add dates"
-                checkInType="out"
-                readonly
-              />
+              <DateSelector placeholder="Add dates" checkInType="out" />
             </div>
           </div>
         </div>
